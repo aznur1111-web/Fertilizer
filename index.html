@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aznur Fertilizer & Plant Nutrition Studio</title>
+<meta name="description" content="Aznur Fertilizer & Plant Nutrition Studio — fertilizer, crop, soil, nutrient, fertigation and farm nutrient management calculators.">
+<style>
+:root {
+  --bg: #fafafa;
+  --surface: #fff;
+  --surface-2: #f5f5f4;
+  --border: #e7e5e4;
+  --text: #1c1917;
+  --muted: #57534e;
+  --accent: #f59e0b;
+  --accent-hover: #d97706;
+  --accent-soft: #fffbeb;
+  --accent-border: #fcd34d;
+  --success: #10b981;
+  --error: #ef4444;
+  --info: #3b82f6;
+  --warning: #f59e0b;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow: 0 1px 2px rgba(0,0,0,.05);
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; border: 0; }
+
+.app {
+  display: grid;
+  grid-template-columns: 260px 1fr 320px;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--accent);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.brand b { font-size: 15px; }
+.brand small { display: block; color: var(--muted); font-size: 11px; }
+
+.nav {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav button {
+  background: none;
+  border: 0;
+  color: var(--text);
+  text-align: left;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  transition: background 0.15s;
+}
+
+.nav button:hover { background: var(--surface-2); }
+.nav button.active { background: var(--accent-soft); color: var(--accent-hover); font-weight: 600; }
+
+.nav .group {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 14px 12px 6px;
+}
+
+.main {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  overflow-y: auto;
+  padding: 20px 24px 60px;
+}
+
+.topbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.title h1 { font-size: 1.5rem; margin: 0; font-weight: 700; }
+.title p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.btn {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s;
+}
+
+.btn:hover { background: var(--surface-2); border-color: var(--accent); }
+.btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn.primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn.danger { background: var(--error); color: #fff; border-color: var(--error); }
+
+.right {
+  grid-column: 3;
+  grid-row: 1 / -1;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.card h2 { font-size: 1.25rem; margin: 0 0 12px; font-weight: 700; }
+.card h3 { font-size: 1rem; margin: 0 0 10px; font-weight: 700; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.col-12 { grid-column: span 12; }
+.col-8 { grid-column: span 8; }
+.col-6 { grid-column: span 6; }
+.col-4 { grid-column: span 4; }
+.col-3 { grid-column: span 3; }
+
+label {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+input, select, textarea {
+  width: 100%;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 9px 11px;
+  font-size: 14px;
+  transition: border-color 0.15s;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+  border-color: var(--accent);
+}
+
+textarea { min-height: 90px; resize: vertical; font-family: var(--mono); font-size: 13px; }
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.metric {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+
+.metric small { color: var(--muted); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+.metric strong { display: block; font-size: 18px; margin-top: 4px; font-weight: 700; }
+
+.result {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  padding: 12px;
+  border-radius: var(--radius);
+  margin: 10px 0;
+  font-size: 13px;
+}
+
+.result.warn { border-left-color: var(--warning); background: #fef3c7; }
+.result.danger { border-left-color: var(--error); background: #fee2e2; }
+
+.muted { color: var(--muted); }
+.good { color: var(--success); }
+.warntext { color: var(--warning); }
+.dangertext { color: var(--error); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 12px;
+}
+
+th, td {
+  border-bottom: 1px solid var(--border);
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  color: var(--muted);
+  background: var(--surface-2);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  position: sticky;
+  top: 0;
+}
+
+.tablewrap {
+  overflow: auto;
+  max-height: 480px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.toolbar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.pill {
+  display: inline-block;
+  border: 1px solid var(--border);
+  padding: 3px 8px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.hidden { display: none !important; }
+
+.section { display: none; }
+.section.active { display: block; }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+.progress { height: 8px; background: var(--surface-2); border-radius: 99px; overflow: hidden; }
+.progress i { display: block; height: 100%; background: var(--accent); }
+
+.symptoms {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.symptoms label {
+  border: 1px solid var(--border);
+  padding: 10px;
+  border-radius: var(--radius);
+  margin: 0;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.symptoms input { width: auto; margin: 0; }
+
+.notice {
+  padding: 12px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-soft);
+  border-radius: var(--radius);
+  color: var(--text);
+  margin-bottom: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.notice.warn { background: #fef3c7; border-color: #fde68a; }
+
+footer {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 30px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 1200px) {
+  .app { grid-template-columns: 220px 1fr; }
+  .right { display: none; }
+}
+
+@media (max-width: 900px) {
+  .app { grid-template-columns: 1fr; }
+  .sidebar {
+    position: fixed;
+    z-index: 100;
+    left: -280px;
+    width: 260px;
+    height: 100vh;
+    transition: left 0.2s;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+  }
+  .sidebar.open { left: 0; }
+  .main { padding: 16px; }
+  .grid, .two, .three { grid-template-columns: 1fr; }
+  .col-3, .col-4, .col-6, .col-8 { grid-column: span 12; }
+  .metric-grid { grid-template-columns: 1fr; }
+}
+
+@media print {
+  body { background: white; }
+  .sidebar, .right, .topbar .actions, .no-print { display: none !important; }
+  .main { padding: 0; }
+  .card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+  input, select, textarea { border: 0; padding: 0; background: white; }
+  section { display: block !important; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <div class="logo">A</div>
+    <div><b>Aznur Fertilizer</b><small>Plant Nutrition Studio</small></div>
+  </div>
+  <nav class="nav" id="nav">
+    <div class="group">Workspace</div>
+    <button data-section="dashboard">Dashboard</button>
+    <div class="group">Calculators</div>
+    <button data-section="fertilizer">Fertilizer Rate</button>
+    <button data-section="blend">Fertilizer Blend</button>
+    <button data-section="conversion">N-P-K Conversion</button>
+    <button data-section="lime">Lime & Gypsum</button>
+    <button data-section="organic">Compost & Manure</button>
+    <button data-section="fertigation">Fertigation</button>
+    <button data-section="foliar">Foliar Feed</button>
+    <button data-section="hydro">Hydroponics</button>
+    <div class="group">Agronomy</div>
+    <button data-section="crops">Crop Nutrition</button>
+    <button data-section="soil">Soil Test</button>
+    <button data-section="diagnosis">Deficiency Diagnosis</button>
+    <button data-section="nutrient">Nutrient Library</button>
+    <button data-section="fertdb">Fertilizer Database</button>
+    <div class="group">Farm</div>
+    <button data-section="budget">Nutrient Budget</button>
+    <button data-section="economics">Fertilizer Economics</button>
+    <button data-section="environment">Environment & 4R</button>
+    <button data-section="planner">Nutrition Planner</button>
+    <div class="group">Data & Reference</div>
+    <button data-section="reference">Reference Library</button>
+    <button data-section="import">Import / Export</button>
+    <button data-section="settings">Settings</button>
+  </nav>
+</aside>
+
+<main class="main">
+  <div class="topbar">
+    <div class="title">
+      <h1 id="pageTitle">Aznur Fertilizer & Plant Nutrition Studio</h1>
+      <p id="pageSub">Local-first agricultural calculation and decision-support system</p>
+    </div>
+    <div class="actions">
+      <button class="btn" onclick="toggleMenu()">☰ Menu</button>
+      <button class="btn" onclick="window.print()">Print</button>
+      <button class="btn primary" onclick="saveSnapshot()">Save</button>
+    </div>
+  </div>
+
+  <section class="section active" id="dashboard">
+    <div class="notice"><b>Professional nutrient-management workflow:</b> Soil → Crop → Yield target → Nutrient requirement → Existing supply → Fertilizer gap → Source → Rate → Time → Place → Cost → Risk.</div>
+    <div class="three">
+      <div class="card">
+        <h3>Farm Profile</h3>
+        <div class="grid">
+          <div class="col-6"><label>Farm / Field</label><input id="farmName" value="My Field"></div>
+          <div class="col-6"><label>Area (ha)</label><input id="dashArea" type="number" value="1" step=".01"></div>
+          <div class="col-6"><label>Country</label><select id="country"><option>Bangladesh</option><option>Japan</option><option>India</option><option>United States</option><option>United Kingdom</option><option>Australia</option><option>Other</option></select></div>
+          <div class="col-6"><label>Crop</label><select id="dashCrop"></select></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Key Nutrients</h3>
+        <div class="metric-grid">
+          <div class="metric"><small>N target</small><strong id="mN">—</strong></div>
+          <div class="metric"><small>P₂O₅ target</small><strong id="mP">—</strong></div>
+          <div class="metric"><small>K₂O target</small><strong id="mK">—</strong></div>
+          <div class="metric"><small>Fertilizer cost</small><strong id="mCost">—</strong></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>System Status</h3>
+        <div class="result">Core calculators <b>ONLINE</b></div>
+        <div class="result">Data mode <b>LOCAL</b></div>
+        <div class="result warn">Recommendations require crop/soil context.</div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Quick Tools</h2>
+      <div class="toolbar">
+        <button class="btn primary" onclick="go('fertilizer')">Fertilizer Rate</button>
+        <button class="btn" onclick="go('soil')">Soil Test</button>
+        <button class="btn" onclick="go('diagnosis')">Deficiency Diagnosis</button>
+        <button class="btn" onclick="go('fertigation')">Fertigation</button>
+        <button class="btn" onclick="go('economics')">Economics</button>
+      </div>
+      <div id="dashboardSummary"></div>
+    </div>
+  </section>
+
+  <section class="section" id="fertilizer">
+    <div class="card">
+      <h2>Fertilizer Rate Calculator</h2>
+      <p class="muted">Calculate fertilizer quantity from a nutrient target. N, P and K values follow the fertilizer label convention where applicable.</p>
+      <div class="grid">
+        <div class="col-4"><label>Area</label><input id="fArea" type="number" value="1" step=".01"></div>
+        <div class="col-4"><label>Area unit</label><select id="fUnit"><option value="ha">hectare</option><option value="acre">acre</option><option value="m2">m²</option><option value="decimal">decimal</option><option value="katha">katha</option><option value="bigha">bigha</option></select></div>
+        <div class="col-4"><label>Target nutrient</label><select id="fNut"><option value="N">N</option><option value="P2O5">P₂O₅</option><option value="K2O">K₂O</option><option value="S">S</option><option value="Ca">Ca</option><option value="Mg">Mg</option><option value="Zn">Zn</option><option value="B">B</option></select></div>
+        <div class="col-4"><label>Target rate (kg nutrient/ha)</label><input id="fRate" type="number" value="100"></div>
+        <div class="col-4"><label>Fertilizer</label><select id="fProduct"></select></div>
+        <div class="col-4"><label>Fertilizer nutrient % <span class="muted">(auto, editable)</span></label><input id="fPct" type="number" value="46" step=".01"></div>
+      </div>
+      <div class="toolbar">
+        <button class="btn primary" onclick="calcFertilizer()">Calculate</button>
+        <button class="btn" onclick="clearForm('fertilizer')">Reset</button>
+      </div>
+      <div id="fertResult"></div>
+    </div>
+  </section>
+
+  <section class="section" id="blend">
+    <div class="card">
+      <h2>Fertilizer Blend Calculator</h2>
+      <p class="muted">Solve approximate quantities for a target N-P₂O₅-K₂O formulation using selected fertilizer sources.</p>
+      <div class="grid">
+        <div class="col-4"><label>Target N %</label><input id="bN" type="number" value="15"></div>
+        <div class="col-4"><label>Target P₂O₅ %</label><input id="bP" type="number" value="15"></div>
+        <div class="col-4"><label>Target K₂O %</label><input id="bK" type="number" value="15"></div>
+        <div class="col-4"><label>Total blend mass (kg)</label><input id="bMass" type="number" value="100"></div>
+        <div class="col-4"><label>N source</label><select id="bNs"></select></div>
+        <div class="col-4"><label>P source</label><select id="bPs"></select></div>
+        <div class="col-4"><label>K source</label><select id="bKs"></select></div>
+      </div>
+      <div class="toolbar">
+        <button class="btn primary" onclick="calcBlend()">Calculate blend</button>
+      </div>
+      <div id="blendResult"></div>
+    </div>
+  </section>
+
+  <section class="section" id="conversion">
+    <div class="card">
+      <h2>N-P-K / Nutrient Conversion</h2>
+      <div class="grid">
+        <div class="col-4"><label>Value</label><input id="convValue" type="number" value="20"></div>
+        <div class="col-4"><label>From</label><select id="convFrom"><option value="P2O5">P₂O₅</option><option value="P">P</option><option value="K2O">K₂O</option><option value="K">K</option></select></div>
+        <div class="col-4"><label>To</label><select id="convTo"><option value="P">P</option><option value="P2O5">P₂O₅</option><option value="K">K</option><option value="K2O">K₂O</option></select></div>
+      </div>
+      <div class="toolbar">
+        <button class="btn primary" onclick="convert()">Convert</button>
+      </div>
+      <div id="convResult"></div>
+      <div class="notice">Common conversion factors: P = P₂O₅ × 0.4364; P₂O₅ = P × 2.291. K = K₂O × 0.8301; K₂O = K × 1.2046.</div>
+    </div>
+  </section>
+
+  <section class="section" id="lime">
+    <div class="card">
+      <h2>Lime & Gypsum</h2>
+      <div class="two">
+        <div>
+          <h3>Lime requirement</h3>
+          <div class="grid">
+            <div class="col-6"><label>Area (ha)</label><input id="limeArea" type="number" value="1"></div>
+            <div class="col-6"><label>Base lime kg/ha</label><input id="limeBase" type="number" value="2000"></div>
+            <div class="col-6"><label>Purity / CCE %</label><input id="limePurity" type="number" value="90"></div>
+            <div class="col-6"><label>Adjustment factor</label><input id="limeAdj" type="number" value="1" step=".01"></div>
+          </div>
+          <button class="btn primary" onclick="calcLime()">Calculate</button>
+          <div id="limeResult"></div>
+        </div>
+        <div>
+          <h3>Gypsum requirement</h3>
+          <div class="grid">
+            <div class="col-6"><label>Area (ha)</label><input id="gArea" type="number" value="1"></div>
+            <div class="col-6"><label>Base gypsum kg/ha</label><input id="gBase" type="number" value="2000"></div>
+            <div class="col-6"><label>Purity %</label><input id="gPurity" type="number" value="80"></div>
+          </div>
+          <button class="btn primary" onclick="calcGypsum()">Calculate</button>
+          <div id="gypsumResult"></div>
+        </div>
+      </div>
+      <div class="notice warn">Lime recommendations should ideally use a suitable buffer-pH/soil test. Gypsum is not a universal pH-correction product.</div>
+    </div>
+  </section>
+
+  <section class="section" id="organic">
+    <div class="card">
+      <h2>Organic Fertilizer / Compost / Manure</h2>
+      <div class="grid">
+        <div class="col-4"><label>Material</label><select id="orgMat"></select></div>
+        <div class="col-4"><label>Fresh mass (kg)</label><input id="orgMass" type="number" value="1000"></div>
+        <div class="col-4"><label>Moisture %</label><input id="orgMoist" type="number" value="30"></div>
+        <div class="col-4"><label>N % of dry matter</label><input id="orgN" type="number" value="2"></div>
+        <div class="col-4"><label>P₂O₅ % of dry matter</label><input id="orgP" type="number" value="1"></div>
+        <div class="col-4"><label>K₂O % of dry matter</label><input id="orgK" type="number" value="1"></div>
+        <div class="col-4"><label>N availability %</label><input id="orgAvail" type="number" value="30"></div>
+      </div>
+      <div class="toolbar">
+        <button class="btn primary" onclick="calcOrganic()">Calculate nutrients</button>
+      </div>
+      <div id="orgResult"></div>
+      <h3>Compost C:N quick calculator</h3>
+      <div class="grid">
+        <div class="col-4"><label>Carbon mass (kg)</label><input id="cnC" type="number" value="300"></div>
+        <div class="col-4"><label>Nitrogen mass (kg)</label><input id="cnN" type="number" value="10"></div>
+      </div>
+      <button class="btn" onclick="calcCN()">Calculate C:N</button>
+      <div id="cnResult"></div>
+    </div>
+  </section>
+
+  <section class="section" id="fertigation">
+    <div class="card">
+      <h2>Fertigation Calculator</h2>
+      <div class="grid">
+        <div class="col-4"><label>Field area (ha)</label><input id="fgArea" type="number" value="1"></div>
+        <div class="col-4"><label>Target nutrient (kg/ha)</label><input id="fgRate" type="number" value="20"></div>
+        <div class="col-4"><label>Fertilizer nutrient %</label><input id="fgPct" type="number" value="46"></div>
+        <div class="col-4"><label>Tank volume (L)</label><input id="fgTank" type="number" value="100"></div>
+        <div class="col-4"><label>Injector ratio (1:x)</label><input id="fgRatio" type="number" value="100"></div>
+        <div class="col-4"><label>Irrigation flow (L/min)</label><input id="fgFlow" type="number" value="100"></div>
+        <div class="col-4"><label>Injection duration (min)</label><input id="fgTime" type="number" value="30"></div>
+      </div>
+      <button class="btn primary" onclick="calcFertigation()">Calculate</button>
+      <div id="fgResult"></div>
+    </div>
+  </section>
+
+  <section class="section" id="foliar">
+    <div class="card">
+      <h2>Foliar Application Calculator</h2>
+      <div class="grid">
+        <div class="col-4"><label>Spray area (ha)</label><input id="flArea" type="number" value="1"></div>
+        <div class="col-4"><label>Spray volume (L/ha)</label><input id="flVol" type="number" value="300"></div>
+        <div class="col-4"><label>Product concentration (g/L)</label><input id="flConc" type="number" value="2"></div>
+        <div class="col-4"><label>Product nutrient %</label><input id="flPct" type="number" value="10"></div>
+      </div>
+      <button class="btn primary" onclick="calcFoliar()">Calculate</button>
+      <div id="flResult"></div>
+      <div class="notice warn">Foliar concentration is crop/product-specific. Avoid treating the calculated quantity as a universal safe rate.</div>
+    </div>
+  </section>
+
+  <section class="section" id="hydro">
+    <div class="card">
+      <h2>Hydroponic Nutrient Calculator</h2>
+      <div class="grid">
+        <div class="col-4"><label>Reservoir volume (L)</label><input id="hyVol" type="number" value="100"></div>
+        <div class="col-4"><label>Target N (mg/L)</label><input id="hyN" type="number" value="150"></div>
+        <div class="col-4"><label>Fertilizer N %</label><input id="hyPct" type="number" value="10"></div>
+        <div class="col-4"><label>Target EC (reference)</label><input id="hyEC" type="number" value="1.8" step=".1"></div>
+      </div>
+      <button class="btn primary" onclick="calcHydro()">Calculate</button>
+      <div id="hyResult"></div>
+      <div class="notice">EC/TDS is not a direct measurement of individual nutrient concentrations. Use a crop-specific nutrient formulation and monitor pH/EC.</div>
+    </div>
+  </section>
+
+  <section class="section" id="crops">
+    <div class="card">
+      <h2>Crop Nutrition Database</h2>
+      <div class="grid">
+        <div class="col-4"><label>Crop</label><select id="cropSelect"></select></div>
+        <div class="col-4"><label>Target yield (t/ha)</label><input id="yieldTarget" type="number" value="5" step=".1"></div>
+        <div class="col-4"><label>Region</label><select id="cropRegion"><option>Bangladesh</option><option>Japan</option><option>India</option><option>United States</option><option>Other</option></select></div>
+      </div>
+      <div id="cropInfo" class="card" style="margin-top:12px"></div>
+    </div>
+  </section>
+
+  <section class="section" id="soil">
+    <div class="card">
+      <h2>Soil Test Interpreter</h2>
+      <div class="grid">
+        <div class="col-3"><label>pH</label><input id="sPH" type="number" value="6.5" step=".1"></div>
+        <div class="col-3"><label>EC dS/m</label><input id="sEC" type="number" value="0.5" step=".1"></div>
+        <div class="col-3"><label>Organic matter %</label><input id="sOM" type="number" value="2"></div>
+        <div class="col-3"><label>CEC cmol(+)/kg</label><input id="sCEC" type="number" value="12"></div>
+        <div class="col-3"><label>Available N kg/ha</label><input id="sN" type="number" value="60"></div>
+        <div class="col-3"><label>Available P kg/ha</label><input id="sP" type="number" value="20"></div>
+        <div class="col-3"><label>Available K kg/ha</label><input id="sK" type="number" value="80"></div>
+        <div class="col-3"><label>Zn mg/kg</label><input id="sZn" type="number" value="1"></div>
+      </div>
+      <button class="btn primary" onclick="interpretSoil()">Interpret soil</button>
+      <div id="soilResult"></div>
+    </div>
+  </section>
+
+  <section class="section" id="diagnosis">
+    <div class="card">
+      <h2>Plant Nutrient Deficiency Diagnosis</h2>
+      <p class="muted">Select symptoms. This is a screening tool, not a laboratory diagnosis.</p>
+      <div class="symptoms" id="symptoms"></div>
+      <button class="btn primary" onclick="diagnose()">Analyze symptoms</button>
+      <div id="diagResult"></div>
+    </div>
+  </section>
+
+  <section class="section" id="nutrient">
+    <div class="card">
+      <h2>Nutrient Library</h2>
+      <div class="tablewrap">
+        <table id="nutTable">
+          <thead>
+            <tr>
+              <th>Nutrient</th>
+              <th>Role</th>
+              <th>Mobility</th>
+              <th>Common deficiency clues</th>
+              <th>pH context</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="fertdb">
+    <div class="card">
+      <h2>Fertilizer Database</h2>
+      <div class="toolbar">
+        <input id="fertSearch" placeholder="Search fertilizer..." oninput="renderFertDB()" style="flex:1;min-width:200px">
+        <button class="btn" onclick="addCustomFertilizer()">Add custom product</button>
+      </div>
+      <div class="tablewrap">
+        <table id="fertTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Formula / type</th>
+              <th>N %</th>
+              <th>P₂O₅ %</th>
+              <th>K₂O %</th>
+              <th>Other</th>
+              <th>Use</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="budget">
+    <div class="card">
+      <h2>Farm Nutrient Budget</h2>
+      <div class="grid">
+        <div class="col-4"><label>N inputs (kg/ha)</label><input id="bnIn" type="number" value="120"></div>
+        <div class="col-4"><label>N crop removal</label><input id="bnOut" type="number" value="100"></div>
+        <div class="col-4"><label>P inputs</label><input id="bpIn" type="number" value="40"></div>
+        <div class="col-4"><label>P removal</label><input id="bpOut" type="number" value="30"></div>
+        <div class="col-4"><label>K inputs</label><input id="bkIn" type="number" value="80"></div>
+        <div class="col-4"><label>K removal</label><input id="bkOut" type="number" value="90"></div>
+      </div>
+      <button class="btn primary" onclick="calcBudget()">Calculate balance</button>
+      <div id="budgetResult"></div>
+    </div>
+  </section>
+
+  <section class="section" id="economics">
+    <div class="card">
+      <h2>Fertilizer Economics</h2>
+      <div class="grid">
+        <div class="col-4"><label>Currency</label><select id="cur"><option>BDT</option><option>USD</option><option>JPY</option><option>EUR</option><option>GBP</option><option>INR</option></select></div>
+        <div class="col-4"><label>Fertilizer quantity (kg)</label><input id="ecoQty" type="number" value="100"></div>
+        <div class="col-4"><label>Price / kg</label><input id="ecoPrice" type="number" value="30"></div>
+        <div class="col-4"><label>Yield increase (t/ha)</label><input id="ecoYield" type="number" value="1"></div>
+        <div class="col-4"><label>Crop value / tonne</label><input id="ecoValue" type="number" value="30000"></div>
+      </div>
+      <button class="btn primary" onclick="calcEconomics()">Calculate ROI</button>
+      <div id="ecoResult"></div>
+    </div>
+  </section>
+
+  <section class="section" id="environment">
+    <div class="card">
+      <h2>Environment & 4R Nutrient Management</h2>
+      <div class="grid">
+        <div class="col-4"><label>N rate kg/ha</label><input id="envN" type="number" value="150"></div>
+        <div class="col-4"><label>Heavy rainfall risk 0–10</label><input id="envRain" type="number" value="5"></div>
+        <div class="col-4"><label>Soil drainage 0–10</label><input id="envDrain" type="number" value="5"></div>
+        <div class="col-4"><label>Slope risk 0–10</label><input id="envSlope" type="number" value="3"></div>
+        <div class="col-4"><label>Crop cover 0–10</label><input id="envCover" type="number" value="7"></div>
+        <div class="col-4"><label>Placement quality 0–10</label><input id="envPlace" type="number" value="7"></div>
+      </div>
+      <button class="btn primary" onclick="calcEnvironment()">Assess risk</button>
+      <div id="envResult"></div>
+      <div class="three">
+        <div class="result"><b>RIGHT SOURCE</b><br><span class="muted">Match nutrient form to crop/soil.</span></div>
+        <div class="result"><b>RIGHT RATE</b><br><span class="muted">Match application to tested need.</span></div>
+        <div class="result"><b>RIGHT TIME / PLACE</b><br><span class="muted">Synchronize with uptake and placement.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="planner">
+    <div class="card">
+      <h2>Crop Nutrition Planner</h2>
+      <div class="grid">
+        <div class="col-4"><label>Crop</label><select id="planCrop"></select></div>
+        <div class="col-4"><label>Area ha</label><input id="planArea" type="number" value="1"></div>
+        <div class="col-4"><label>Target yield t/ha</label><input id="planYield" type="number" value="5"></div>
+        <div class="col-4"><label>Soil N supply kg/ha</label><input id="planSN" type="number" value="40"></div>
+        <div class="col-4"><label>Soil P₂O₅ supply</label><input id="planSP" type="number" value="15"></div>
+        <div class="col-4"><label>Soil K₂O supply</label><input id="planSK" type="number" value="60"></div>
+        <div class="col-4"><label>N fertilizer source</label><select id="planNSource"></select></div>
+        <div class="col-4"><label>P fertilizer source</label><select id="planPSource"></select></div>
+        <div class="col-4"><label>K fertilizer source</label><select id="planKSource"></select></div>
+      </div>
+      <button class="btn primary" onclick="buildPlan()">Build plan</button>
+      <div id="planResult"></div>
+    </div>
+  </section>
+
+  <section class="section" id="reference">
+    <div class="card">
+      <h2>Reference Library</h2>
+      <div class="notice">Reference links are provided for research and provenance. Numerical recommendations should be checked against current local extension/research guidance.</div>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Organization / source</th>
+              <th>Use in this app</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody id="refTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="import">
+    <div class="card">
+      <h2>Import / Export</h2>
+      <div class="notice">Import CSV files using the templates below. The app attempts to map common column names and shows a preview before applying data.</div>
+      <div class="toolbar">
+        <button class="btn" onclick="downloadCSVTemplate('fertilizers')">Fertilizer template</button>
+        <button class="btn" onclick="downloadCSVTemplate('crops')">Crop template</button>
+        <button class="btn" onclick="downloadCSVTemplate('soil')">Soil template</button>
+        <button class="btn" onclick="exportState()">Export saved data</button>
+        <label class="btn">Import CSV <input id="csvFile" type="file" accept=".csv,text/csv" hidden onchange="importCSV(event)"></label>
+      </div>
+      <div id="importResult"></div>
+    </div>
+  </section>
+
+  <section class="section" id="settings">
+    <div class="card">
+      <h2>Settings</h2>
+      <div class="grid">
+        <div class="col-4"><label>Default currency</label><select id="setCurrency" onchange="localStorage.setItem('aznur_currency',this.value)"><option>BDT</option><option>USD</option><option>JPY</option><option>EUR</option><option>GBP</option><option>INR</option></select></div>
+        <div class="col-4"><label>Default country</label><select id="setCountry"><option>Bangladesh</option><option>Japan</option><option>India</option><option>United States</option><option>Other</option></select></div>
+        <div class="col-4"><label>Application mode</label><select id="setMode"><option>Professional</option><option>Student / Learning</option><option>Home Garden</option></select></div>
+      </div>
+      <div class="toolbar">
+        <button class="btn danger" onclick="resetApp()">Reset local app data</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>Aznur Fertilizer & Plant Nutrition Studio • Local-first • Calculation outputs are estimates unless supported by user-entered laboratory/reference data.</footer>
+</main>
+
+<aside class="right">
+  <div class="card">
+    <h3>Live Context</h3>
+    <div id="context">
+      <div class="metric"><small>Selected crop</small><strong id="ctxCrop">—</strong></div>
+      <br>
+      <div class="metric"><small>Country</small><strong id="ctxCountry">Bangladesh</strong></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Calculation Notes</h3>
+    <div id="notes" class="muted">Choose a calculator to begin. Results show assumptions and distinguish calculated values from reference/context information.</div>
+  </div>
+  <div class="card">
+    <h3>Reference Status</h3>
+    <div class="result">Core conversion constants: built in</div>
+    <div class="result">Crop/fertilizer starter dataset: built in</div>
+    <div class="result warn">Local recommendations: verify current source</div>
+  </div>
+</aside>
+</div>
+
+<script>
+const crops=[
+  {name:"Rice",scientific:"Oryza sativa",category:"Cereal",pH:"5.5–7.0",duration:"90–150 days",N:100,P:40,K:60,stages:"Establishment → tillering → panicle initiation → flowering → grain filling",def:"N, P, K, Zn",notes:"Strongly region/season/soil dependent; Bangladesh mode supports Aus/Aman/Boro as future dataset fields."},
+  {name:"Wheat",scientific:"Triticum aestivum",category:"Cereal",pH:"6.0–7.5",duration:"100–140 days",N:120,P:50,K:60,stages:"Germination → tillering → stem extension → flowering → grain filling",def:"N, S, Zn",notes:"Rates depend strongly on soil test and yield target."},
+  {name:"Maize",scientific:"Zea mays",category:"Cereal",pH:"5.8–7.0",duration:"90–150 days",N:160,P:60,K:80,stages:"Emergence → vegetative → tasseling → silking → grain fill",def:"N, P, K, Zn",notes:"High nutrient demand; split N is commonly useful."},
+  {name:"Potato",scientific:"Solanum tuberosum",category:"Vegetable/tuber",pH:"5.0–6.5",duration:"70–140 days",N:140,P:60,K:180,stages:"Sprout → canopy → tuber initiation → bulking → maturity",def:"K, Mg, Ca",notes:"K source selection can matter where chloride sensitivity is important."},
+  {name:"Tomato",scientific:"Solanum lycopersicum",category:"Vegetable",pH:"5.8–6.8",duration:"90–180 days",N:150,P:60,K:200,stages:"Seedling → vegetative → flowering → fruit set → fruit fill",def:"Ca, K, Mg",notes:"Fertigation suitability is high in protected production."},
+  {name:"Onion",scientific:"Allium cepa",category:"Vegetable/bulb",pH:"6.0–7.0",duration:"90–180 days",N:100,P:50,K:100,stages:"Establishment → leaf growth → bulb initiation → bulb filling → maturity",def:"N, S, K",notes:"Excess late N can affect maturity/storage."},
+  {name:"Jute",scientific:"Corchorus spp.",category:"Fiber",pH:"5.5–7.0",duration:"100–150 days",N:80,P:30,K:50,stages:"Establishment → vegetative → fiber development → harvest",def:"N, K",notes:"Use Bangladesh-specific extension data when making field recommendations."},
+  {name:"Sugarcane",scientific:"Saccharum officinarum",category:"Industrial",pH:"5.5–8.0",duration:"10–18 months",N:180,P:60,K:180,stages:"Establishment → tillering → grand growth → maturity",def:"N, K",notes:"Long-duration crop; split nutrient applications are common."},
+  {name:"Mango",scientific:"Mangifera indica",category:"Fruit/tree",pH:"5.5–7.5",duration:"Perennial",N:100,P:30,K:100,stages:"Dormancy → flush → flowering → fruit set → fruit development",def:"K, Zn, B",notes:"Tree age and canopy size should drive actual recommendations."},
+  {name:"Banana",scientific:"Musa spp.",category:"Fruit",pH:"5.5–7.0",duration:"9–15 months",N:200,P:50,K:300,stages:"Establishment → vegetative → flowering → bunch development",def:"K, N, Mg",notes:"High K demand; frequent split applications can be appropriate."},
+  {name:"Soybean",scientific:"Glycine max",category:"Legume",pH:"6.0–7.0",duration:"90–150 days",N:30,P:50,K:80,stages:"Emergence → vegetative → flowering → pod set → seed fill",def:"P, K, S",notes:"Biological N fixation changes N management."},
+  {name:"Chili",scientific:"Capsicum annuum",category:"Vegetable",pH:"5.5–7.0",duration:"100–180 days",N:120,P:50,K:160,stages:"Seedling → vegetative → flowering → fruiting",def:"K, Ca, Mg",notes:"Frequent harvest systems may benefit from staged nutrition."}
+];
+
+const ferts=[
+  {name:"Urea",type:"Nitrogen",formula:"CO(NH₂)₂",N:46,P:0,K:0,other:"High N; hydrolysis/volatilization considerations",use:"N topdress, basal, fertigation where suitable"},
+  {name:"DAP",type:"NP",formula:"(NH₄)₂HPO₄",N:18,P:46,K:0,other:"Ammonium phosphate",use:"N + P starter/basal"},
+  {name:"MAP",type:"NP",formula:"NH₄H₂PO₄",N:11,P:52,K:0,other:"Ammonium phosphate",use:"N + P starter/fertigation where suitable"},
+  {name:"TSP",type:"P",formula:"Ca(H₂PO₄)₂",N:0,P:46,K:0,other:"High P",use:"P source"},
+  {name:"MOP / KCl",type:"K",formula:"KCl",N:0,P:0,K:60,other:"Chloride-bearing",use:"K source"},
+  {name:"SOP / K₂SO₄",type:"K+S",formula:"K₂SO₄",N:0,P:0,K:50,other:"Sulfur source; low chloride",use:"K + S"},
+  {name:"Ammonium sulfate",type:"N+S",formula:"(NH₄)₂SO₄",N:21,P:0,K:0,other:"~24% S",use:"N + S"},
+  {name:"Calcium nitrate",type:"N+Ca",formula:"Ca(NO₃)₂",N:15.5,P:0,K:0,other:"Calcium source",use:"N + Ca; soluble"},
+  {name:"Potassium nitrate",type:"N+K",formula:"KNO₃",N:13,P:0,K:46,other:"N + K",use:"Fertigation/foliar/soil where suitable"},
+  {name:"CAN",type:"N",formula:"Calcium ammonium nitrate",N:27,P:0,K:0,other:"N fertilizer",use:"N source"},
+  {name:"SSP",type:"P+S",formula:"Single superphosphate",N:0,P:16,K:0,other:"~11–12% S",use:"P + S"},
+  {name:"NPK 15-15-15",type:"Compound",formula:"NPK",N:15,P:15,K:15,other:"Custom compound",use:"General compound fertilizer"},
+  {name:"NPK 20-20-20",type:"Compound",formula:"NPK",N:20,P:20,K:20,other:"Water-soluble product class",use:"Fertigation/foliar/soil depending product label"}
+];
+
+const organics=[
+  {name:"Cattle manure",N:2,P:1,K:1},
+  {name:"Poultry manure",N:3,P:2,K:2},
+  {name:"Compost",N:1.5,P:.7,K:1},
+  {name:"Vermicompost",N:2,P:1,K:1},
+  {name:"Digestate",N:1.5,P:.7,K:1.2},
+  {name:"Green manure",N:2,P:.5,K:1}
+];
+
+const nutrients=[
+  ["N","Protein, chlorophyll and growth","Mobile","Older leaves yellow first","Losses and leaching can be important"],
+  ["P","Energy transfer and roots","Mobile","Dark/green or purplish growth; slow development","Availability often affected by pH"],
+  ["K","Water regulation and enzyme activation","Mobile","Older leaves marginal scorch/yellowing","High K can interact with Mg/Ca"],
+  ["Ca","Cell walls and growing points","Limited","Young leaves/distorted growing points","Availability depends on roots/pH"],
+  ["Mg","Chlorophyll central atom","Mobile","Interveinal chlorosis on older leaves","High K can contribute to imbalance"],
+  ["S","Protein/amino acids","Less mobile","Young leaves yellow","Can be confused with N deficiency"],
+  ["Zn","Enzymes and growth regulation","Low mobility","Short internodes, small leaves","High P can interact with Zn"],
+  ["Fe","Chlorophyll synthesis","Low mobility","Young-leaf interveinal chlorosis","High pH commonly reduces availability"],
+  ["B","Cell division/reproductive growth","Low mobility","Growing-point/flower/fruit abnormalities","Narrow deficiency-to-toxicity range"],
+  ["Mn","Photosynthesis/enzymes","Low mobility","Interveinal chlorosis/speckling","Availability often declines at high pH"],
+  ["Cu","Enzymes/reproductive growth","Low mobility","Young tissue distortion/wilting","Organic matter and pH influence availability"],
+  ["Mo","N metabolism","Mobile-ish","N-like deficiency symptoms","Availability increases with pH"]
+];
+
+const symptomDefs=[
+  ["Older leaves yellow uniformly","N",4],
+  ["Older leaves show purple/dark coloration","P",3],
+  ["Older leaf edges scorch/burn","K",4],
+  ["Interveinal chlorosis on older leaves","Mg",4],
+  ["Interveinal chlorosis on young leaves","Fe",5],
+  ["Young leaves distorted/growing point damaged","Ca",4],
+  ["Young leaves yellow including veins","S",3],
+  ["Short internodes/small leaves","Zn",4],
+  ["Flower/fruit abnormalities","B",4],
+  ["Speckled chlorosis","Mn",3],
+  ["Young leaves wilt/distort","Cu",2],
+  ["N-like deficiency at higher pH","Mo",2],
+  ["Waterlogged roots","Stress",3],
+  ["Very dry soil","Stress",3],
+  ["High salinity / EC","Stress",4]
+];
+
+const refs=[
+  ["FAO","Global soils, fertilizer and plant nutrition publications","https://www.fao.org/soils-portal/"],
+  ["USDA NRCS","Nutrient management and 4R principles","https://www.nrcs.usda.gov/getting-assistance/other-topics/nutrient-management"],
+  ["USDA ARS","Agricultural research and datasets","https://www.ars.usda.gov/"],
+  ["CABI","Agricultural knowledge and crop information","https://www.cabi.org/"],
+  ["CGIAR","International agricultural research","https://www.cgiar.org/"],
+  ["RHS","Plant nutrition and fertilizer reference","https://www.rhs.org.uk/garden-jobs/fertilisers"],
+  ["NARO Japan","Japanese agricultural research","https://www.naro.go.jp/english/"],
+  ["Bangladesh Agricultural Research Council","Bangladesh agricultural research coordination","https://barc.gov.bd/"],
+  ["Bangladesh Agricultural Research Institute","Bangladesh crop/agricultural research","https://bari.gov.bd/"],
+  ["Bangladesh Rice Research Institute","Rice research","https://brri.gov.bd/"],
+  ["Soil Resource Development Institute Bangladesh","Soil resources and land information","https://srdi.gov.bd/"],
+  ["Bangladesh Agricultural University","Agricultural research and education","https://bau.edu.bd/"],
+  ["Department of Agricultural Extension Bangladesh","Extension information","https://dae.gov.bd/"]
+];
+
+const areaToHa={ha:1,acre:.404685642,m2:.0001,decimal:.00404685642,katha:.006689,bigha:.13378};
+const $=id=>document.getElementById(id);
+
+function go(id){
+  document.querySelectorAll(".section").forEach(x=>x.classList.remove("active"));
+  $(id).classList.add("active");
+  document.querySelectorAll("#nav button").forEach(x=>x.classList.toggle("active",x.dataset.section===id));
+  let b=document.querySelector(`#nav button[data-section="${id}"]`);
+  let title=b?b.textContent:"Aznur Fertilizer & Plant Nutrition Studio";
+  $("pageTitle").textContent=title;
+  $("pageSub").textContent="Aznur agricultural calculation and decision-support workspace";
+  updateContext();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function toggleMenu(){
+  $("sidebar").classList.toggle("open");
+}
+
+function fillSelect(id,arr,fmt=x=>x.name){
+  $(id).innerHTML=arr.map((x,i)=>`<option value="${i}">${fmt(x)}</option>`).join("");
+}
+
+function init(){
+  ["dashCrop","cropSelect","planCrop"].forEach(id=>fillSelect(id,crops));
+  ["fProduct","bNs","bPs","bKs","planNSource","planPSource","planKSource"].forEach(id=>fillSelect(id,ferts));
+  fillSelect("orgMat",organics);
+  $("symptoms").innerHTML=symptomDefs.map((s,i)=>`<label><input type="checkbox" value="${i}">${s[0]}</label>`).join("");
+  $("nutTable").querySelector("tbody").innerHTML=nutrients.map(n=>`<tr><td><b>${n[0]}</b></td><td>${n[1]}</td><td>${n[2]}</td><td>${n[3]}</td><td>${n[4]}</td></tr>`).join("");
+  $("refTable").innerHTML=refs.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td><a href="${r[2]}" target="_blank" rel="noopener">${r[2]}</a></td></tr>`).join("");
+  renderFertDB();
+  renderCrop();
+  updateContext();
+  loadState();
+  $("dashCrop").addEventListener("change",()=>{renderCrop();updateContext()});
+  $("cropSelect").addEventListener("change",renderCrop);
+}
+
+function updateContext(){
+  $("ctxCrop").textContent=crops[$("dashCrop")?.value||0]?.name||"—";
+  $("ctxCountry").textContent=$("country")?.value||"Bangladesh";
+}
+
+function calcFertilizer(){
+  let area=+$("fArea").value||0,ha=area*(areaToHa[$("fUnit").value]||1),rate=+$("fRate").value||0,pct=+$("fPct").value||0;
+  let kgNutr=ha*rate,kgF=pct?kgNutr/(pct/100):0,f=ferts[$("fProduct").value];
+  $("fertResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>Area</small><strong>${ha.toFixed(4)} ha</strong></div><div class="metric"><small>Nutrient required</small><strong>${kgNutr.toFixed(2)} kg</strong></div><div class="metric"><small>Fertilizer required</small><strong>${kgF.toFixed(2)} kg</strong></div><div class="metric"><small>Approx. 50 kg bags</small><strong>${(kgF/50).toFixed(2)}</strong></div></div><div class="result"><b>Source:</b> ${f.name}. <b>Input concentration:</b> ${pct}%.</div><div class="notice">Calculated value. It satisfies the entered nutrient target mathematically; agronomic suitability still depends on crop, soil, timing and local recommendation.</div>`;
+  $("mN").textContent=$("fNut").value==="N"?kgNutr.toFixed(1)+" kg":"—";
+  saveState();
+}
+
+function calcBlend(){
+  let mass=+$("bMass").value||0,n=+$("bN").value||0,p=+$("bP").value||0,k=+$("bK").value||0;
+  let ns=ferts[$("bNs").value],ps=ferts[$("bPs").value],ks=ferts[$("bKs").value];
+  let qN=ns.N?n*mass/ns.N:0,qP=ps.P?p*mass/ps.P:0,qK=ks.K?k*mass/ks.K:0,total=qN+qP+qK;
+  $("blendResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>${ns.name}</small><strong>${qN.toFixed(2)} kg</strong></div><div class="metric"><small>${ps.name}</small><strong>${qP.toFixed(2)} kg</strong></div><div class="metric"><small>${ks.name}</small><strong>${qK.toFixed(2)} kg</strong></div><div class="metric"><small>Source total</small><strong>${total.toFixed(2)} kg</strong></div></div><div class="${total>mass?'result danger':'result'}">${total>mass?"The independent-source solution exceeds the requested blend mass; this target needs a constrained blend solver or additional filler/secondary-source logic.":"This is a simple source-quantity solution, not a full constrained commercial blending formulation."}</div>`;
+}
+
+function convert(){
+  let v=+$("convValue").value||0,a=$("convFrom").value,b=$("convTo").value;
+  let x=v;
+  if(a!==b){
+    if(a==="P")x*=2.291;
+    if(a==="P2O5")x*=.4364;
+    if(a==="K")x*=1.2046;
+    if(a==="K2O")x*=.8301;
+    if(a.startsWith("P")&&b==="K")return $("convResult").innerHTML=`<div class="result danger">P and K are different nutrients and cannot be directly converted.</div>`;
+    if(a.startsWith("K")&&b==="P")return $("convResult").innerHTML=`<div class="result danger">P and K are different nutrients and cannot be directly converted.</div>`;
+    if(b==="P")x*=.4364;
+    if(b==="P2O5")x*=2.291;
+    if(b==="K")x*=.8301;
+    if(b==="K2O")x*=1.2046;
+  }
+  $("convResult").innerHTML=`<div class="metric"><small>Converted value</small><strong>${x.toFixed(4)} ${b}</strong></div>`;
+}
+
+function calcLime(){
+  let q=(+$("limeArea").value||0)*(+$("limeBase").value||0)*(100/(+$("limePurity").value||100))*(+$("limeAdj").value||1);
+  $("limeResult").innerHTML=`<div class="result"><b>${q.toFixed(1)} kg total lime</b><br>${(q/(+$("limeArea").value||1)).toFixed(1)} kg/ha adjusted.</div>`;
+}
+
+function calcGypsum(){
+  let q=(+$("gArea").value||0)*(+$("gBase").value||0)*(100/(+$("gPurity").value||100));
+  $("gypsumResult").innerHTML=`<div class="result"><b>${q.toFixed(1)} kg total gypsum</b><br>Purity-adjusted calculation.</div>`;
+}
+
+function calcOrganic(){
+  let m=+$("orgMass").value||0,dry=m*(1-(+$("orgMoist").value||0)/100),n=dry*(+$("orgN").value||0)/100,p=dry*(+$("orgP").value||0)/100,k=dry*(+$("orgK").value||0)/100,an=n*(+$("orgAvail").value||0)/100;
+  $("orgResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>Dry matter</small><strong>${dry.toFixed(1)} kg</strong></div><div class="metric"><small>Total N</small><strong>${n.toFixed(2)} kg</strong></div><div class="metric"><small>Available N assumption</small><strong>${an.toFixed(2)} kg</strong></div><div class="metric"><small>P₂O₅</small><strong>${p.toFixed(2)} kg</strong></div><div class="metric"><small>K₂O</small><strong>${k.toFixed(2)} kg</strong></div></div>`;
+}
+
+function calcCN(){
+  let c=+$("cnC").value||0,n=+$("cnN").value||0;
+  $("cnResult").innerHTML=`<div class="result"><b>C:N = ${n?(c/n).toFixed(1):"—"}</b></div>`;
+}
+
+function calcFertigation(){
+  let area=+$("fgArea").value||0,rate=+$("fgRate").value||0,pct=+$("fgPct").value||0,tank=+$("fgTank").value||0,ratio=+$("fgRatio").value||0,flow=+$("fgFlow").value||0,time=+$("fgTime").value||0,kg=area*rate/(pct/100),water=flow*time,stock=kg/(tank/1000||1);
+  $("fgResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>Fertilizer required</small><strong>${kg.toFixed(2)} kg</strong></div><div class="metric"><small>Stock concentration</small><strong>${stock.toFixed(2)} kg/L*</strong></div><div class="metric"><small>Irrigation volume</small><strong>${water.toFixed(1)} L</strong></div><div class="metric"><small>Injector ratio</small><strong>1:${ratio}</strong></div></div><div class="notice">*A stock concentration above product solubility is not feasible. Check the product label and injector design.</div>`;
+}
+
+function calcFoliar(){
+  let a=+$("flArea").value||0,v=+$("flVol").value||0,c=+$("flConc").value||0,p=+$("flPct").value||0,total=a*v*c/1000,n=total*p/100;
+  $("flResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>Total spray water</small><strong>${(a*v).toFixed(1)} L</strong></div><div class="metric"><small>Product</small><strong>${total.toFixed(2)} kg</strong></div><div class="metric"><small>Nutrient supplied</small><strong>${n.toFixed(2)} kg</strong></div></div>`;
+}
+
+function calcHydro(){
+  let v=+$("hyVol").value||0,n=+$("hyN").value||0,p=+$("hyPct").value||0,kg=v*n/1e6/(p/100);
+  $("hyResult").innerHTML=`<div class="result">Approx. fertilizer required to supply target N: <b>${(kg*1000).toFixed(2)} g</b>. This does not formulate the complete hydroponic recipe.</div>`;
+}
+
+function renderCrop(){
+  let c=crops[$("cropSelect")?.value||$("dashCrop")?.value||0];
+  if(!c)return;
+  $("cropInfo").innerHTML=`<div class="three"><div class="metric"><small>Scientific name</small><strong>${c.scientific}</strong></div><div class="metric"><small>pH</small><strong>${c.pH}</strong></div><div class="metric"><small>Duration</small><strong>${c.duration}</strong></div></div><div class="result"><b>Starter reference targets:</b> N ${c.N}, P₂O₅ ${c.P}, K₂O ${c.K} kg/ha. These are dataset placeholders/reference values, not universal recommendations.</div><p><b>Growth stages:</b> ${c.stages}</p><p><b>Common nutrition concerns:</b> ${c.def}</p><p class="muted">${c.notes}</p>`;
+  $("mN").textContent=c.N+" kg/ha";
+  $("mP").textContent=c.P+" kg/ha";
+  $("mK").textContent=c.K+" kg/ha";
+}
+
+function interpretSoil(){
+  let ph=+$("sPH").value,ec=+$("sEC").value,om=+$("sOM").value,zn=+$("sZn").value;
+  let phmsg=ph<5.5?"Strongly acidic":ph<6?"Acidic":ph<=7.2?"Near neutral / suitable for many crops":ph<=8?"Alkaline":"Strongly alkaline";
+  let ecmsg=ec<2?"Generally low salinity risk for many crops":"Salinity may restrict sensitive crops";
+  let znmsg=zn<1?"Potentially low Zn (method-dependent)":zn<2?"Check crop/soil-test interpretation":"Likely adequate under many reference schemes";
+  $("soilResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>pH interpretation</small><strong>${phmsg}</strong></div><div class="metric"><small>EC</small><strong>${ecmsg}</strong></div><div class="metric"><small>Organic matter</small><strong>${om<1?"Low":om<3?"Moderate":"High"}</strong></div><div class="metric"><small>Zn screening</small><strong>${znmsg}</strong></div></div><div class="notice">Soil-test categories depend on extraction method, soil class, crop and local calibration. Use the laboratory's reference ranges where available.</div>`;
+}
+
+function diagnose(){
+  let scores={};
+  document.querySelectorAll("#symptoms input:checked").forEach(x=>{let s=symptomDefs[+x.value];scores[s[1]]=(scores[s[1]]||0)+s[2]});
+  let out=Object.entries(scores).filter(x=>x[0]!=="Stress").sort((a,b)=>b[1]-a[1]);
+  $("diagResult").innerHTML=out.length?out.map((x,i)=>`<div class="result"><b>${i+1}. ${x[0]}</b> — ${x[1]>=7?"Higher screening likelihood":x[1]>=4?"Moderate screening likelihood":"Lower screening likelihood"}</div>`).join("")+`<div class="notice">Visual symptoms overlap among nutrient disorders, pests, diseases, drought, salinity and root problems. Confirm important diagnoses with soil/plant tissue testing.</div>`:`<div class="notice">Select symptoms to generate a screening assessment.</div>`;
+}
+
+function renderFertDB(){
+  let q=($("fertSearch")?.value||"").toLowerCase();
+  $("fertTable").querySelector("tbody").innerHTML=ferts.filter(f=>JSON.stringify(f).toLowerCase().includes(q)).map(f=>`<tr><td><b>${f.name}</b></td><td>${f.formula}<br><span class="pill">${f.type}</span></td><td>${f.N}</td><td>${f.P}</td><td>${f.K}</td><td>${f.other}</td><td>${f.use}</td></tr>`).join("");
+}
+
+function addCustomFertilizer(){
+  let name=prompt("Product name");
+  if(!name)return;
+  let N=+prompt("N %","0")||0,P=+prompt("P₂O₅ %","0")||0,K=+prompt("K₂O %","0")||0;
+  ferts.push({name,type:"Custom",formula:"User defined",N,P,K,other:"User-defined product",use:"User-defined"});
+  renderFertDB();
+  fillSelect("fProduct",ferts);
+  ["bNs","bPs","bKs","planNSource","planPSource","planKSource"].forEach(id=>fillSelect(id,ferts));
+  saveState();
+}
+
+function calcBudget(){
+  let n=(+$("bnIn").value||0)-(+$("bnOut").value||0),p=(+$("bpIn").value||0)-(+$("bpOut").value||0),k=(+$("bkIn").value||0)-(+$("bkOut").value||0);
+  $("budgetResult").innerHTML=`<div class="metric-grid">${[["N",n],["P",p],["K",k]].map(x=>`<div class="metric"><small>${x[0]} balance</small><strong class="${x[1]<0?'dangertext':x[1]>0?'warntext':'good'}">${x[1].toFixed(1)} kg/ha</strong></div>`).join("")}</div><div class="notice">Positive balance means inputs exceed entered crop removal; it is not automatically beneficial or harmful.</div>`;
+}
+
+function calcEconomics(){
+  let cost=(+$("ecoQty").value||0)*(+$("ecoPrice").value||0),rev=(+$("ecoYield").value||0)*(+$("ecoValue").value||0),roi=cost?((rev-cost)/cost)*100:0;
+  $("ecoResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>Fertilizer cost</small><strong>${cost.toFixed(2)} ${$("cur").value}</strong></div><div class="metric"><small>Value increase</small><strong>${rev.toFixed(2)} ${$("cur").value}</strong></div><div class="metric"><small>Simple ROI</small><strong>${roi.toFixed(1)}%</strong></div></div><div class="notice">ROI depends on the assumed yield response and crop price; it is not a guaranteed return.</div>`;
+}
+
+function calcEnvironment(){
+  let n=+$("envN").value,r=+$("envRain").value,d=+$("envDrain").value,s=+$("envSlope").value,c=+$("envCover").value,p=+$("envPlace").value;
+  let score=Math.min(100,n/3+r*4+(10-d)*3+s*3+(10-c)*2+(10-p)*2);
+  let level=score<30?"LOW":score<55?"MODERATE":score<75?"HIGH":"VERY HIGH";
+  $("envResult").innerHTML=`<div class="metric"><small>Screening nutrient-loss risk</small><strong>${level} (${score.toFixed(0)}/100)</strong></div><div class="notice">This is a qualitative screening index created from your inputs, not a calibrated loss model or regulatory measurement.</div>`;
+}
+
+function buildPlan(){
+  let c=crops[$("planCrop").value],a=+$("planArea").value||1,y=+$("planYield").value||1;
+  let n=Math.max(0,c.N*(y/5)-+$("planSN").value),p=Math.max(0,c.P*(y/5)-+$("planSP").value),k=Math.max(0,c.K*(y/5)-+$("planSK").value);
+  let nf=ferts[$("planNSource").value],pf=ferts[$("planPSource").value],kf=ferts[$("planKSource").value];
+  let qn=n/(nf.N/100),qp=pf.P?p/(pf.P/100):0,qk=k/(kf.K/100);
+  $("planResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>N gap</small><strong>${n.toFixed(1)} kg/ha</strong></div><div class="metric"><small>P₂O₅ gap</small><strong>${p.toFixed(1)} kg/ha</strong></div><div class="metric"><small>K₂O gap</small><strong>${k.toFixed(1)} kg/ha</strong></div><div class="metric"><small>Whole-field fertilizer</small><strong>${((qn+qp+qk)*a).toFixed(1)} kg</strong></div></div><table><tr><th>Source</th><th>Purpose</th><th>Rate kg/ha</th><th>Total kg</th></tr><tr><td>${nf.name}</td><td>N</td><td>${qn.toFixed(1)}</td><td>${(qn*a).toFixed(1)}</td></tr><tr><td>${pf.name}</td><td>P₂O₅</td><td>${qp.toFixed(1)}</td><td>${(qp*a).toFixed(1)}</td></tr><tr><td>${kf.name}</td><td>K₂O</td><td>${qk.toFixed(1)}</td><td>${(qk*a).toFixed(1)}</td></tr></table><div class="notice warn">This planner uses the starter crop dataset. Replace it with region-, soil- and yield-calibrated recommendations before field use.</div>`;
+}
+
+function saveState(){
+  let state={ferts,country:$("country")?.value||"Bangladesh",farm:$("farmName")?.value||"My Field"};
+  localStorage.setItem("aznur_fertilizer_state",JSON.stringify(state));
+  updateContext();
+}
+
+function loadState(){
+  try{
+    let s=JSON.parse(localStorage.getItem("aznur_fertilizer_state")||"null");
+    if(s?.ferts?.length){ferts.length=0;ferts.push(...s.ferts);["fProduct","bNs","bPs","bKs","planNSource","planPSource","planKSource"].forEach(id=>fillSelect(id,ferts));renderFertDB()}
+    if(s?.farm)$("farmName").value=s.farm;
+  }catch(e){}
+}
+
+function saveSnapshot(){
+  saveState();
+  $("dashboardSummary").innerHTML=`<div class="result">Saved locally at ${new Date().toLocaleString()}.</div>`;
+}
+
+function exportState(){
+  let blob=new Blob([JSON.stringify({ferts,crops,version:"1.0.0"},null,2)],{type:"application/json"});
+  downloadBlob(blob,"aznur-fertilizer-data.json");
+}
+
+function downloadCSVTemplate(type){
+  let rows=type==="fertilizers"?["name,type,formula,N,P2O5,K2O,other,use","Example,Custom,Formula,10,10,10,,General use"]:type==="crops"?["name,scientific,category,pH,duration,N,P2O5,K2O,stages,deficiency_notes","Example,Species,Cereal,5.5-7,120 days,100,40,60,Establishment|Vegetative|Flowering,N|P|K"]:["field,pH,EC,organic_matter,CEC,N,P,K,Zn","Field 1,6.5,0.5,2,12,60,20,80,1"];
+  downloadBlob(new Blob([rows.join("\n")],{type:"text/csv"}),`aznur-${type}-template.csv`);
+}
+
+function importCSV(e){
+  let file=e.target.files[0];
+  if(!file)return;
+  let r=new FileReader();
+  r.onload=()=>{
+    let lines=r.result.split(/\r?\n/).filter(Boolean),headers=lines[0].split(",").map(x=>x.trim());
+    $("importResult").innerHTML=`<div class="result"><b>Detected columns:</b> ${headers.join(", ")}</div><div class="notice">Preview only in this build. Confirm mapping before applying imported records to the active dataset.</div>`;
+  };
+  r.readAsText(file);
+}
+
+function downloadBlob(blob,name){
+  let a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download=name;
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+
+function clearForm(id){
+  document.querySelectorAll(`#${id} input`).forEach(x=>{if(x.type==="number")x.value=x.defaultValue});
+}
+
+function resetApp(){
+  if(confirm("Reset saved Aznur Fertilizer local data?")){
+    localStorage.removeItem("aznur_fertilizer_state");
+    location.reload();
+  }
+}
+
+$("nav")?.addEventListener("click",e=>{
+  let b=e.target.closest("button[data-section]");
+  if(b)go(b.dataset.section);
+});
+
+$("country")?.addEventListener("change",updateContext);
+
+init();
+go("dashboard");
+</script>
+</body>
+</html>
