@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Aznur Fertilizer & Plant Nutrition Studio</title>
-<meta name="description" content="Aznur Fertilizer & Plant Nutrition Studio — fertilizer, crop, soil, nutrient, fertigation and farm nutrient management calculators.">
+<title>AZNUR Fertilizer & Plant Nutrition Studio | Farm Nutrient Toolkit</title>
+<meta name="description" content="Aznur Fertilizer & Plant Nutrition Studio - fertilizer, crop, soil, nutrient, fertigation and farm nutrient management calculators.">
 <style>
 :root {
   --bg: #fafafa;
@@ -82,12 +82,7 @@ button { cursor: pointer; border: 0; }
 .brand b { font-size: 15px; }
 .brand small { display: block; color: var(--muted); font-size: 11px; }
 
-.nav {
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
+.nav { padding: 12px; display: flex; flex-direction: column; gap: 2px; }
 
 .nav button {
   background: none;
@@ -174,13 +169,7 @@ button { cursor: pointer; border: 0; }
 .card h2 { font-size: 1.25rem; margin: 0 0 12px; font-weight: 700; }
 .card h3 { font-size: 1rem; margin: 0 0 10px; font-weight: 700; }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 14px;
-  margin-bottom: 16px;
-}
-
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; margin-bottom: 16px; }
 .col-12 { grid-column: span 12; }
 .col-8 { grid-column: span 8; }
 .col-6 { grid-column: span 6; }
@@ -216,18 +205,9 @@ input:focus, select:focus, textarea:focus {
 
 textarea { min-height: 90px; resize: vertical; font-family: var(--mono); font-size: 13px; }
 
-.metric-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-}
+.metric-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
 
-.metric {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 12px;
-}
+.metric { background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; }
 
 .metric small { color: var(--muted); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
 .metric strong { display: block; font-size: 18px; margin-top: 4px; font-weight: 700; }
@@ -241,6 +221,7 @@ textarea { min-height: 90px; resize: vertical; font-family: var(--mono); font-si
   font-size: 13px;
 }
 
+.result.good { border-left-color: var(--success); background: #ecfdf5; }
 .result.warn { border-left-color: var(--warning); background: #fef3c7; }
 .result.danger { border-left-color: var(--error); background: #fee2e2; }
 
@@ -249,19 +230,9 @@ textarea { min-height: 90px; resize: vertical; font-family: var(--mono); font-si
 .warntext { color: var(--warning); }
 .dangertext { color: var(--error); }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-  margin-top: 12px;
-}
+table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
 
-th, td {
-  border-bottom: 1px solid var(--border);
-  padding: 10px;
-  text-align: left;
-  vertical-align: top;
-}
+th, td { border-bottom: 1px solid var(--border); padding: 10px; text-align: left; vertical-align: top; }
 
 th {
   color: var(--muted);
@@ -274,19 +245,10 @@ th {
   top: 0;
 }
 
-.tablewrap {
-  overflow: auto;
-  max-height: 480px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-}
+.tablewrap { overflow: auto; max-height: 480px; border: 1px solid var(--border); border-radius: var(--radius); }
+.tablewrap table { margin: 0; }
 
-.toolbar {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 14px;
-}
+.toolbar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
 
 .pill {
   display: inline-block;
@@ -297,6 +259,9 @@ th {
   font-size: 11px;
   font-weight: 600;
 }
+.pill.ok { background: #ecfdf5; color: var(--success); border-color: #a7f3d0; }
+.pill.med { background: #fef3c7; color: #b45309; border-color: #fde68a; }
+.pill.low { background: #fee2e2; color: var(--error); border-color: #fecaca; }
 
 .hidden { display: none !important; }
 
@@ -309,11 +274,7 @@ th {
 .progress { height: 8px; background: var(--surface-2); border-radius: 99px; overflow: hidden; }
 .progress i { display: block; height: 100%; background: var(--accent); }
 
-.symptoms {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
-}
+.symptoms { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
 
 .symptoms label {
   border: 1px solid var(--border);
@@ -325,9 +286,14 @@ th {
   display: flex;
   align-items: center;
   gap: 8px;
+  color: var(--text);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
 }
 
 .symptoms input { width: auto; margin: 0; }
+.symptoms label:hover { border-color: var(--accent); }
 
 .notice {
   padding: 12px;
@@ -350,6 +316,49 @@ footer {
   border-top: 1px solid var(--border);
 }
 
+/* ---------- Visual Lab ---------- */
+.visual-lab{background:#191512;color:#f5f5f4;border:1px solid #2d2823;border-radius:14px;overflow:hidden;box-shadow:0 14px 40px -24px rgba(28,25,23,.65)}
+.vl-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;background:#211d18;border-bottom:1px solid #2d2823;flex-wrap:wrap}
+.vl-tabs{display:flex;gap:3px;flex-wrap:wrap;background:#141110;padding:3px;border-radius:9px}
+.vl-tab{border:0;background:transparent;color:#a8a29e;border-radius:6px;padding:7px 10px;font-size:11px;font-weight:700}
+.vl-tab:hover{color:#fff}
+.vl-tab.active{background:#f59e0b;color:#1c1917}
+.vl-actions{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.vl-btn{height:30px;border:1px solid #3d372e;background:#141110;color:#f5f5f4;border-radius:7px;padding:0 10px;font-size:11px;font-weight:700}
+.vl-btn:hover{border-color:#f59e0b;background:#2e2924}
+.vl-body{display:grid;grid-template-columns:minmax(0,1fr) 290px;min-height:560px}
+.vl-stage{position:relative;min-width:0;background:#141110}
+#vlCanvas{display:block;width:100%;height:100%;min-height:560px;touch-action:none}
+.vl-readouts{position:absolute;top:12px;right:12px;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:65%;pointer-events:none}
+.vl-pill{background:rgba(20,17,16,.84);border:1px solid #3d372e;color:#a8a29e;border-radius:7px;padding:5px 8px;font:600 10px var(--mono)}
+.vl-pill b{color:#fbbf24}
+.vl-side{background:#211d18;border-left:1px solid #2d2823;padding:14px;display:flex;flex-direction:column;gap:12px}
+.vl-side h3{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:#fbbf24}
+.vl-desc{font-size:11px;color:#a8a29e;line-height:1.55}
+.vl-control{display:grid;gap:5px}
+.vl-control label{font-size:9px;color:#a8a29e;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.vl-control .vl-row{display:grid;grid-template-columns:1fr 58px;gap:8px;align-items:center}
+.vl-control input[type=range]{width:100%;padding:0;border:0;box-shadow:none;accent-color:#f59e0b}
+.vl-control select{height:30px;background:#141110;color:#f5f5f4;border:1px solid #3d372e;border-radius:7px;padding:0 8px;font:600 11px var(--mono)}
+.vl-control .val{font:600 10px var(--mono);color:#fbbf24;text-align:right}
+.vl-legend{display:grid;gap:6px}
+.vl-legend div{display:flex;align-items:center;gap:7px;color:#a8a29e;font-size:10px}
+.vl-swatch{width:20px;height:4px;border-radius:3px;display:inline-block}
+.vl-foot{padding:10px 14px;background:#211d18;border-top:1px solid #2d2823;color:#8f8880;font-size:10px;line-height:1.55}
+.chart-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.chart-mini{border:1px solid #3d372e;background:#171411;border-radius:8px;padding:9px}
+.chart-mini small{display:block;color:#8f8880;font-size:9px;text-transform:uppercase;letter-spacing:.07em}
+.chart-mini strong{display:block;margin-top:3px;font:700 13px var(--mono);color:#f5f5f4}
+@media(max-width:1100px){.vl-body{grid-template-columns:1fr}.vl-side{border-left:0;border-top:1px solid #2d2823}.chart-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.chart-grid{grid-template-columns:1fr}}
+
+/* ---------- Small additions (toast) ---------- */
+.toasts{position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:8px;z-index:300}
+.toast{background:#1c1917;color:#f5f5f4;border:1px solid #3d372e;border-left:3px solid var(--accent);padding:10px 14px;border-radius:8px;font-size:13px;font-weight:600;box-shadow:0 10px 30px -10px rgba(0,0,0,.4);opacity:0;transform:translateY(8px);transition:all .25s}
+.toast.in{opacity:1;transform:none}
+.toast.err{border-left-color:var(--error)}
+.toast.ok{border-left-color:var(--success)}
+
 @media (max-width: 1200px) {
   .app { grid-template-columns: 220px 1fr; }
   .right { display: none; }
@@ -371,12 +380,14 @@ footer {
   .grid, .two, .three { grid-template-columns: 1fr; }
   .col-3, .col-4, .col-6, .col-8 { grid-column: span 12; }
   .metric-grid { grid-template-columns: 1fr; }
+  .symptoms { grid-template-columns: 1fr; }
 }
 
 @media print {
   body { background: white; }
-  .sidebar, .right, .topbar .actions, .no-print { display: none !important; }
-  .main { padding: 0; }
+  .sidebar, .right, .topbar .actions, .no-print, .toasts { display: none !important; }
+  .main { padding: 0; overflow: visible; }
+  .app { display: block; height: auto; overflow: visible; }
   .card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
   input, select, textarea { border: 0; padding: 0; background: white; }
   section { display: block !important; }
@@ -403,6 +414,7 @@ footer {
     <button data-section="foliar">Foliar Feed</button>
     <button data-section="hydro">Hydroponics</button>
     <div class="group">Agronomy</div>
+    <button data-section="visual">Visual Lab</button>
     <button data-section="crops">Crop Nutrition</button>
     <button data-section="soil">Soil Test</button>
     <button data-section="diagnosis">Deficiency Diagnosis</button>
@@ -448,10 +460,10 @@ footer {
       <div class="card">
         <h3>Key Nutrients</h3>
         <div class="metric-grid">
-          <div class="metric"><small>N target</small><strong id="mN">—</strong></div>
-          <div class="metric"><small>P₂O₅ target</small><strong id="mP">—</strong></div>
-          <div class="metric"><small>K₂O target</small><strong id="mK">—</strong></div>
-          <div class="metric"><small>Fertilizer cost</small><strong id="mCost">—</strong></div>
+          <div class="metric"><small>N target</small><strong id="mN">-</strong></div>
+          <div class="metric"><small>P₂O₅ target</small><strong id="mP">-</strong></div>
+          <div class="metric"><small>K₂O target</small><strong id="mK">-</strong></div>
+          <div class="metric"><small>NPK total</small><strong id="mCost">-</strong></div>
         </div>
       </div>
       <div class="card">
@@ -679,13 +691,7 @@ footer {
       <div class="tablewrap">
         <table id="nutTable">
           <thead>
-            <tr>
-              <th>Nutrient</th>
-              <th>Role</th>
-              <th>Mobility</th>
-              <th>Common deficiency clues</th>
-              <th>pH context</th>
-            </tr>
+            <tr><th>Nutrient</th><th>Role</th><th>Mobility</th><th>Common deficiency clues</th><th>pH context</th></tr>
           </thead>
           <tbody></tbody>
         </table>
@@ -703,15 +709,7 @@ footer {
       <div class="tablewrap">
         <table id="fertTable">
           <thead>
-            <tr>
-              <th>Name</th>
-              <th>Formula / type</th>
-              <th>N %</th>
-              <th>P₂O₅ %</th>
-              <th>K₂O %</th>
-              <th>Other</th>
-              <th>Use</th>
-            </tr>
+            <tr><th>Name</th><th>Formula / type</th><th>N %</th><th>P₂O₅ %</th><th>K₂O %</th><th>Other</th><th>Use</th></tr>
           </thead>
           <tbody></tbody>
         </table>
@@ -753,13 +751,14 @@ footer {
   <section class="section" id="environment">
     <div class="card">
       <h2>Environment & 4R Nutrient Management</h2>
+      <p class="muted">Rain, slope and placement are <b>risk scores</b> (higher = worse). Drainage and crop cover are <b>quality scores</b> (higher = better).</p>
       <div class="grid">
         <div class="col-4"><label>N rate kg/ha</label><input id="envN" type="number" value="150"></div>
-        <div class="col-4"><label>Heavy rainfall risk 0–10</label><input id="envRain" type="number" value="5"></div>
-        <div class="col-4"><label>Soil drainage 0–10</label><input id="envDrain" type="number" value="5"></div>
-        <div class="col-4"><label>Slope risk 0–10</label><input id="envSlope" type="number" value="3"></div>
-        <div class="col-4"><label>Crop cover 0–10</label><input id="envCover" type="number" value="7"></div>
-        <div class="col-4"><label>Placement quality 0–10</label><input id="envPlace" type="number" value="7"></div>
+        <div class="col-4"><label>Heavy rainfall risk 0-10</label><input id="envRain" type="number" value="5" min="0" max="10"></div>
+        <div class="col-4"><label>Soil drainage 0-10</label><input id="envDrain" type="number" value="5" min="0" max="10"></div>
+        <div class="col-4"><label>Slope risk 0-10</label><input id="envSlope" type="number" value="3" min="0" max="10"></div>
+        <div class="col-4"><label>Crop cover 0-10</label><input id="envCover" type="number" value="7" min="0" max="10"></div>
+        <div class="col-4"><label>Placement quality 0-10</label><input id="envPlace" type="number" value="7" min="0" max="10"></div>
       </div>
       <button class="btn primary" onclick="calcEnvironment()">Assess risk</button>
       <div id="envResult"></div>
@@ -790,6 +789,44 @@ footer {
     </div>
   </section>
 
+  <section class="section" id="visual">
+    <div class="card">
+      <h2>Visual Lab</h2>
+      <p class="muted">Interactive offline charts for crop nutrient demand, nutrient balances, fertilizer comparison, soil screening, ROI sensitivity and staged nutrient uptake.</p>
+    </div>
+    <div class="visual-lab">
+      <div class="vl-head">
+        <div class="vl-tabs" id="vlTabs">
+          <button class="vl-tab active" data-vl-mode="demand">NPK demand</button>
+          <button class="vl-tab" data-vl-mode="balance">Nutrient balance</button>
+          <button class="vl-tab" data-vl-mode="fert">Fertilizer compare</button>
+          <button class="vl-tab" data-vl-mode="soil">Soil profile</button>
+          <button class="vl-tab" data-vl-mode="roi">ROI sensitivity</button>
+          <button class="vl-tab" data-vl-mode="uptake">Uptake curve</button>
+        </div>
+        <div class="vl-actions">
+          <button class="vl-btn" id="vlAnimate">Pause</button>
+          <button class="vl-btn" id="vlReset">Reset</button>
+          <button class="vl-btn" id="vlPng">Export PNG</button>
+        </div>
+      </div>
+      <div class="vl-body">
+        <div class="vl-stage" id="vlStage">
+          <canvas id="vlCanvas" aria-label="Interactive nutrient visualization"></canvas>
+          <div class="vl-readouts" id="vlReadouts"></div>
+        </div>
+        <aside class="vl-side">
+          <h3 id="vlModeTitle">NPK Demand</h3>
+          <p class="vl-desc" id="vlModeDesc">Compare N, P₂O₅ and K₂O requirements across the crop dataset.</p>
+          <div id="vlControls"></div>
+          <div class="chart-grid" id="vlMetrics"></div>
+          <div class="vl-legend" id="vlLegend"></div>
+        </aside>
+      </div>
+      <div class="vl-foot" id="vlFoot">Visualizations use the app's built-in starter dataset or your entered values. They are decision-support views, not calibrated field models.</div>
+    </div>
+  </section>
+
   <section class="section" id="reference">
     <div class="card">
       <h2>Reference Library</h2>
@@ -797,11 +834,7 @@ footer {
       <div class="tablewrap">
         <table>
           <thead>
-            <tr>
-              <th>Organization / source</th>
-              <th>Use in this app</th>
-              <th>Link</th>
-            </tr>
+            <tr><th>Organization / source</th><th>Use in this app</th><th>Link</th></tr>
           </thead>
           <tbody id="refTable"></tbody>
         </table>
@@ -828,8 +861,8 @@ footer {
     <div class="card">
       <h2>Settings</h2>
       <div class="grid">
-        <div class="col-4"><label>Default currency</label><select id="setCurrency" onchange="localStorage.setItem('aznur_currency',this.value)"><option>BDT</option><option>USD</option><option>JPY</option><option>EUR</option><option>GBP</option><option>INR</option></select></div>
-        <div class="col-4"><label>Default country</label><select id="setCountry"><option>Bangladesh</option><option>Japan</option><option>India</option><option>United States</option><option>Other</option></select></div>
+        <div class="col-4"><label>Default currency</label><select id="setCurrency" onchange="onCurrencyChange(this.value)"><option>BDT</option><option>USD</option><option>JPY</option><option>EUR</option><option>GBP</option><option>INR</option></select></div>
+        <div class="col-4"><label>Default country</label><select id="setCountry" onchange="onCountryChange(this.value)"><option>Bangladesh</option><option>Japan</option><option>India</option><option>United States</option><option>Other</option></select></div>
         <div class="col-4"><label>Application mode</label><select id="setMode"><option>Professional</option><option>Student / Learning</option><option>Home Garden</option></select></div>
       </div>
       <div class="toolbar">
@@ -838,14 +871,14 @@ footer {
     </div>
   </section>
 
-  <footer>Aznur Fertilizer & Plant Nutrition Studio • Local-first • Calculation outputs are estimates unless supported by user-entered laboratory/reference data.</footer>
+  <footer>Aznur Fertilizer & Plant Nutrition Studio | Local-first | Single-file | Calculation outputs are estimates unless supported by user-entered laboratory/reference data.</footer>
 </main>
 
 <aside class="right">
   <div class="card">
     <h3>Live Context</h3>
     <div id="context">
-      <div class="metric"><small>Selected crop</small><strong id="ctxCrop">—</strong></div>
+      <div class="metric"><small>Selected crop</small><strong id="ctxCrop">-</strong></div>
       <br>
       <div class="metric"><small>Country</small><strong id="ctxCountry">Bangladesh</strong></div>
     </div>
@@ -863,340 +896,1327 @@ footer {
 </aside>
 </div>
 
+<div class="toasts" id="toasts"></div>
+
 <script>
-const crops=[
-  {name:"Rice",scientific:"Oryza sativa",category:"Cereal",pH:"5.5–7.0",duration:"90–150 days",N:100,P:40,K:60,stages:"Establishment → tillering → panicle initiation → flowering → grain filling",def:"N, P, K, Zn",notes:"Strongly region/season/soil dependent; Bangladesh mode supports Aus/Aman/Boro as future dataset fields."},
-  {name:"Wheat",scientific:"Triticum aestivum",category:"Cereal",pH:"6.0–7.5",duration:"100–140 days",N:120,P:50,K:60,stages:"Germination → tillering → stem extension → flowering → grain filling",def:"N, S, Zn",notes:"Rates depend strongly on soil test and yield target."},
-  {name:"Maize",scientific:"Zea mays",category:"Cereal",pH:"5.8–7.0",duration:"90–150 days",N:160,P:60,K:80,stages:"Emergence → vegetative → tasseling → silking → grain fill",def:"N, P, K, Zn",notes:"High nutrient demand; split N is commonly useful."},
-  {name:"Potato",scientific:"Solanum tuberosum",category:"Vegetable/tuber",pH:"5.0–6.5",duration:"70–140 days",N:140,P:60,K:180,stages:"Sprout → canopy → tuber initiation → bulking → maturity",def:"K, Mg, Ca",notes:"K source selection can matter where chloride sensitivity is important."},
-  {name:"Tomato",scientific:"Solanum lycopersicum",category:"Vegetable",pH:"5.8–6.8",duration:"90–180 days",N:150,P:60,K:200,stages:"Seedling → vegetative → flowering → fruit set → fruit fill",def:"Ca, K, Mg",notes:"Fertigation suitability is high in protected production."},
-  {name:"Onion",scientific:"Allium cepa",category:"Vegetable/bulb",pH:"6.0–7.0",duration:"90–180 days",N:100,P:50,K:100,stages:"Establishment → leaf growth → bulb initiation → bulb filling → maturity",def:"N, S, K",notes:"Excess late N can affect maturity/storage."},
-  {name:"Jute",scientific:"Corchorus spp.",category:"Fiber",pH:"5.5–7.0",duration:"100–150 days",N:80,P:30,K:50,stages:"Establishment → vegetative → fiber development → harvest",def:"N, K",notes:"Use Bangladesh-specific extension data when making field recommendations."},
-  {name:"Sugarcane",scientific:"Saccharum officinarum",category:"Industrial",pH:"5.5–8.0",duration:"10–18 months",N:180,P:60,K:180,stages:"Establishment → tillering → grand growth → maturity",def:"N, K",notes:"Long-duration crop; split nutrient applications are common."},
-  {name:"Mango",scientific:"Mangifera indica",category:"Fruit/tree",pH:"5.5–7.5",duration:"Perennial",N:100,P:30,K:100,stages:"Dormancy → flush → flowering → fruit set → fruit development",def:"K, Zn, B",notes:"Tree age and canopy size should drive actual recommendations."},
-  {name:"Banana",scientific:"Musa spp.",category:"Fruit",pH:"5.5–7.0",duration:"9–15 months",N:200,P:50,K:300,stages:"Establishment → vegetative → flowering → bunch development",def:"K, N, Mg",notes:"High K demand; frequent split applications can be appropriate."},
-  {name:"Soybean",scientific:"Glycine max",category:"Legume",pH:"6.0–7.0",duration:"90–150 days",N:30,P:50,K:80,stages:"Emergence → vegetative → flowering → pod set → seed fill",def:"P, K, S",notes:"Biological N fixation changes N management."},
-  {name:"Chili",scientific:"Capsicum annuum",category:"Vegetable",pH:"5.5–7.0",duration:"100–180 days",N:120,P:50,K:160,stages:"Seedling → vegetative → flowering → fruiting",def:"K, Ca, Mg",notes:"Frequent harvest systems may benefit from staged nutrition."}
+"use strict";
+
+/* ================= DATA ================= */
+var crops=[
+{name:"Rice",scientific:"Oryza sativa",category:"Cereal",pH:"5.5-7.0",duration:"90-150 days",N:100,P:40,K:60,stages:"Establishment - tillering - panicle initiation - flowering - grain filling",def:"N, P, K, Zn",notes:"Strongly region/season/soil dependent; Bangladesh mode supports Aus/Aman/Boro as future dataset fields."},
+{name:"Wheat",scientific:"Triticum aestivum",category:"Cereal",pH:"6.0-7.5",duration:"100-140 days",N:120,P:50,K:60,stages:"Germination - tillering - stem extension - flowering - grain filling",def:"N, S, Zn",notes:"Rates depend strongly on soil test and yield target."},
+{name:"Maize",scientific:"Zea mays",category:"Cereal",pH:"5.8-7.0",duration:"90-150 days",N:160,P:60,K:80,stages:"Emergence - vegetative - tasseling - silking - grain fill",def:"N, P, K, Zn",notes:"High nutrient demand; split N is commonly useful."},
+{name:"Potato",scientific:"Solanum tuberosum",category:"Vegetable/tuber",pH:"5.0-6.5",duration:"70-140 days",N:140,P:60,K:180,stages:"Sprout - canopy - tuber initiation - bulking - maturity",def:"K, Mg, Ca",notes:"K source selection can matter where chloride sensitivity is important."},
+{name:"Tomato",scientific:"Solanum lycopersicum",category:"Vegetable",pH:"5.8-6.8",duration:"90-180 days",N:150,P:60,K:200,stages:"Seedling - vegetative - flowering - fruit set - fruit fill",def:"Ca, K, Mg",notes:"Fertigation suitability is high in protected production."},
+{name:"Onion",scientific:"Allium cepa",category:"Vegetable/bulb",pH:"6.0-7.0",duration:"90-180 days",N:100,P:50,K:100,stages:"Establishment - leaf growth - bulb initiation - bulb filling - maturity",def:"N, S, K",notes:"Excess late N can affect maturity/storage."},
+{name:"Jute",scientific:"Corchorus spp.",category:"Fiber",pH:"5.5-7.0",duration:"100-150 days",N:80,P:30,K:50,stages:"Establishment - vegetative - fiber development - harvest",def:"N, K",notes:"Use Bangladesh-specific extension data when making field recommendations."},
+{name:"Sugarcane",scientific:"Saccharum officinarum",category:"Industrial",pH:"5.5-8.0",duration:"10-18 months",N:180,P:60,K:180,stages:"Establishment - tillering - grand growth - maturity",def:"N, K",notes:"Long-duration crop; split nutrient applications are common."},
+{name:"Mango",scientific:"Mangifera indica",category:"Fruit/tree",pH:"5.5-7.5",duration:"Perennial",N:100,P:30,K:100,stages:"Dormancy - flush - flowering - fruit set - fruit development",def:"K, Zn, B",notes:"Tree age and canopy size should drive actual recommendations."},
+{name:"Banana",scientific:"Musa spp.",category:"Fruit",pH:"5.5-7.0",duration:"9-15 months",N:200,P:50,K:300,stages:"Establishment - vegetative - flowering - bunch development",def:"K, N, Mg",notes:"High K demand; frequent split applications can be appropriate."},
+{name:"Soybean",scientific:"Glycine max",category:"Legume",pH:"6.0-7.0",duration:"90-150 days",N:30,P:50,K:80,stages:"Emergence - vegetative - flowering - pod set - seed fill",def:"P, K, S",notes:"Biological N fixation changes N management."},
+{name:"Chili",scientific:"Capsicum annuum",category:"Vegetable",pH:"5.5-7.0",duration:"100-180 days",N:120,P:50,K:160,stages:"Seedling - vegetative - flowering - fruiting",def:"K, Ca, Mg",notes:"Frequent harvest systems may benefit from staged nutrition."}
 ];
 
-const ferts=[
-  {name:"Urea",type:"Nitrogen",formula:"CO(NH₂)₂",N:46,P:0,K:0,other:"High N; hydrolysis/volatilization considerations",use:"N topdress, basal, fertigation where suitable"},
-  {name:"DAP",type:"NP",formula:"(NH₄)₂HPO₄",N:18,P:46,K:0,other:"Ammonium phosphate",use:"N + P starter/basal"},
-  {name:"MAP",type:"NP",formula:"NH₄H₂PO₄",N:11,P:52,K:0,other:"Ammonium phosphate",use:"N + P starter/fertigation where suitable"},
-  {name:"TSP",type:"P",formula:"Ca(H₂PO₄)₂",N:0,P:46,K:0,other:"High P",use:"P source"},
-  {name:"MOP / KCl",type:"K",formula:"KCl",N:0,P:0,K:60,other:"Chloride-bearing",use:"K source"},
-  {name:"SOP / K₂SO₄",type:"K+S",formula:"K₂SO₄",N:0,P:0,K:50,other:"Sulfur source; low chloride",use:"K + S"},
-  {name:"Ammonium sulfate",type:"N+S",formula:"(NH₄)₂SO₄",N:21,P:0,K:0,other:"~24% S",use:"N + S"},
-  {name:"Calcium nitrate",type:"N+Ca",formula:"Ca(NO₃)₂",N:15.5,P:0,K:0,other:"Calcium source",use:"N + Ca; soluble"},
-  {name:"Potassium nitrate",type:"N+K",formula:"KNO₃",N:13,P:0,K:46,other:"N + K",use:"Fertigation/foliar/soil where suitable"},
-  {name:"CAN",type:"N",formula:"Calcium ammonium nitrate",N:27,P:0,K:0,other:"N fertilizer",use:"N source"},
-  {name:"SSP",type:"P+S",formula:"Single superphosphate",N:0,P:16,K:0,other:"~11–12% S",use:"P + S"},
-  {name:"NPK 15-15-15",type:"Compound",formula:"NPK",N:15,P:15,K:15,other:"Custom compound",use:"General compound fertilizer"},
-  {name:"NPK 20-20-20",type:"Compound",formula:"NPK",N:20,P:20,K:20,other:"Water-soluble product class",use:"Fertigation/foliar/soil depending product label"}
+var ferts=[
+{name:"Urea",type:"Nitrogen",formula:"CO(NH2)2",N:46,P:0,K:0,other:"High N; hydrolysis/volatilization considerations",use:"N topdress, basal, fertigation where suitable"},
+{name:"DAP",type:"NP",formula:"(NH4)2HPO4",N:18,P:46,K:0,other:"Ammonium phosphate",use:"N + P starter/basal"},
+{name:"MAP",type:"NP",formula:"NH4H2PO4",N:11,P:52,K:0,other:"Ammonium phosphate",use:"N + P starter/fertigation where suitable"},
+{name:"TSP",type:"P",formula:"Ca(H2PO4)2",N:0,P:46,K:0,other:"High P",use:"P source"},
+{name:"MOP / KCl",type:"K",formula:"KCl",N:0,P:0,K:60,other:"Chloride-bearing",use:"K source"},
+{name:"SOP / K2SO4",type:"K+S",formula:"K2SO4",N:0,P:0,K:50,other:"Sulfur source; low chloride",use:"K + S"},
+{name:"Ammonium sulfate",type:"N+S",formula:"(NH4)2SO4",N:21,P:0,K:0,other:"~24% S",use:"N + S"},
+{name:"Calcium nitrate",type:"N+Ca",formula:"Ca(NO3)2",N:15.5,P:0,K:0,other:"Calcium source",use:"N + Ca; soluble"},
+{name:"Potassium nitrate",type:"N+K",formula:"KNO3",N:13,P:0,K:46,other:"N + K",use:"Fertigation/foliar/soil where suitable"},
+{name:"CAN",type:"N",formula:"Calcium ammonium nitrate",N:27,P:0,K:0,other:"N fertilizer",use:"N source"},
+{name:"SSP",type:"P+S",formula:"Single superphosphate",N:0,P:16,K:0,other:"~11-12% S",use:"P + S"},
+{name:"NPK 15-15-15",type:"Compound",formula:"NPK",N:15,P:15,K:15,other:"Custom compound",use:"General compound fertilizer"},
+{name:"NPK 20-20-20",type:"Compound",formula:"NPK",N:20,P:20,K:20,other:"Water-soluble product class",use:"Fertigation/foliar/soil depending product label"}
 ];
 
-const organics=[
-  {name:"Cattle manure",N:2,P:1,K:1},
-  {name:"Poultry manure",N:3,P:2,K:2},
-  {name:"Compost",N:1.5,P:.7,K:1},
-  {name:"Vermicompost",N:2,P:1,K:1},
-  {name:"Digestate",N:1.5,P:.7,K:1.2},
-  {name:"Green manure",N:2,P:.5,K:1}
+var organics=[
+{name:"Cattle manure",N:2,P:1,K:1},
+{name:"Poultry manure",N:3,P:2,K:2},
+{name:"Compost",N:1.5,P:.7,K:1},
+{name:"Vermicompost",N:2,P:1,K:1},
+{name:"Digestate",N:1.5,P:.7,K:1.2},
+{name:"Green manure",N:2,P:.5,K:1}
 ];
 
-const nutrients=[
-  ["N","Protein, chlorophyll and growth","Mobile","Older leaves yellow first","Losses and leaching can be important"],
-  ["P","Energy transfer and roots","Mobile","Dark/green or purplish growth; slow development","Availability often affected by pH"],
-  ["K","Water regulation and enzyme activation","Mobile","Older leaves marginal scorch/yellowing","High K can interact with Mg/Ca"],
-  ["Ca","Cell walls and growing points","Limited","Young leaves/distorted growing points","Availability depends on roots/pH"],
-  ["Mg","Chlorophyll central atom","Mobile","Interveinal chlorosis on older leaves","High K can contribute to imbalance"],
-  ["S","Protein/amino acids","Less mobile","Young leaves yellow","Can be confused with N deficiency"],
-  ["Zn","Enzymes and growth regulation","Low mobility","Short internodes, small leaves","High P can interact with Zn"],
-  ["Fe","Chlorophyll synthesis","Low mobility","Young-leaf interveinal chlorosis","High pH commonly reduces availability"],
-  ["B","Cell division/reproductive growth","Low mobility","Growing-point/flower/fruit abnormalities","Narrow deficiency-to-toxicity range"],
-  ["Mn","Photosynthesis/enzymes","Low mobility","Interveinal chlorosis/speckling","Availability often declines at high pH"],
-  ["Cu","Enzymes/reproductive growth","Low mobility","Young tissue distortion/wilting","Organic matter and pH influence availability"],
-  ["Mo","N metabolism","Mobile-ish","N-like deficiency symptoms","Availability increases with pH"]
+var nutrients=[
+["N","Protein, chlorophyll and growth","Mobile","Older leaves yellow first","Losses and leaching can be important"],
+["P","Energy transfer and roots","Mobile","Dark/green or purplish growth; slow development","Availability often affected by pH"],
+["K","Water regulation and enzyme activation","Mobile","Older leaves marginal scorch/yellowing","High K can interact with Mg/Ca"],
+["Ca","Cell walls and growing points","Limited","Young leaves/distorted growing points","Availability depends on roots/pH"],
+["Mg","Chlorophyll central atom","Mobile","Interveinal chlorosis on older leaves","High K can contribute to imbalance"],
+["S","Protein/amino acids","Less mobile","Young leaves yellow","Can be confused with N deficiency"],
+["Zn","Enzymes and growth regulation","Low mobility","Short internodes, small leaves","High P can interact with Zn"],
+["Fe","Chlorophyll synthesis","Low mobility","Young-leaf interveinal chlorosis","High pH commonly reduces availability"],
+["B","Cell division/reproductive growth","Low mobility","Growing-point/flower/fruit abnormalities","Narrow deficiency-to-toxicity range"],
+["Mn","Photosynthesis/enzymes","Low mobility","Interveinal chlorosis/speckling","Availability often declines at high pH"],
+["Cu","Enzymes/reproductive growth","Low mobility","Young tissue distortion/wilting","Organic matter and pH influence availability"],
+["Mo","N metabolism","Mobile-ish","N-like deficiency symptoms","Availability increases with pH"]
 ];
 
-const symptomDefs=[
-  ["Older leaves yellow uniformly","N",4],
-  ["Older leaves show purple/dark coloration","P",3],
-  ["Older leaf edges scorch/burn","K",4],
-  ["Interveinal chlorosis on older leaves","Mg",4],
-  ["Interveinal chlorosis on young leaves","Fe",5],
-  ["Young leaves distorted/growing point damaged","Ca",4],
-  ["Young leaves yellow including veins","S",3],
-  ["Short internodes/small leaves","Zn",4],
-  ["Flower/fruit abnormalities","B",4],
-  ["Speckled chlorosis","Mn",3],
-  ["Young leaves wilt/distort","Cu",2],
-  ["N-like deficiency at higher pH","Mo",2],
-  ["Waterlogged roots","Stress",3],
-  ["Very dry soil","Stress",3],
-  ["High salinity / EC","Stress",4]
+var symptomDefs=[
+["Older leaves yellow uniformly","N",4],
+["Older leaves show purple/dark coloration","P",3],
+["Older leaf edges scorch/burn","K",4],
+["Interveinal chlorosis on older leaves","Mg",4],
+["Interveinal chlorosis on young leaves","Fe",5],
+["Young leaves distorted/growing point damaged","Ca",4],
+["Young leaves yellow including veins","S",3],
+["Short internodes/small leaves","Zn",4],
+["Flower/fruit abnormalities","B",4],
+["Speckled chlorosis","Mn",3],
+["Young leaves wilt/distort","Cu",2],
+["N-like deficiency at higher pH","Mo",2],
+["Waterlogged roots","Stress",3],
+["Very dry soil","Stress",3],
+["High salinity / EC","Stress",4]
 ];
 
-const refs=[
-  ["FAO","Global soils, fertilizer and plant nutrition publications","https://www.fao.org/soils-portal/"],
-  ["USDA NRCS","Nutrient management and 4R principles","https://www.nrcs.usda.gov/getting-assistance/other-topics/nutrient-management"],
-  ["USDA ARS","Agricultural research and datasets","https://www.ars.usda.gov/"],
-  ["CABI","Agricultural knowledge and crop information","https://www.cabi.org/"],
-  ["CGIAR","International agricultural research","https://www.cgiar.org/"],
-  ["RHS","Plant nutrition and fertilizer reference","https://www.rhs.org.uk/garden-jobs/fertilisers"],
-  ["NARO Japan","Japanese agricultural research","https://www.naro.go.jp/english/"],
-  ["Bangladesh Agricultural Research Council","Bangladesh agricultural research coordination","https://barc.gov.bd/"],
-  ["Bangladesh Agricultural Research Institute","Bangladesh crop/agricultural research","https://bari.gov.bd/"],
-  ["Bangladesh Rice Research Institute","Rice research","https://brri.gov.bd/"],
-  ["Soil Resource Development Institute Bangladesh","Soil resources and land information","https://srdi.gov.bd/"],
-  ["Bangladesh Agricultural University","Agricultural research and education","https://bau.edu.bd/"],
-  ["Department of Agricultural Extension Bangladesh","Extension information","https://dae.gov.bd/"]
+var REMEDY={
+N:"Side-dress a readily available N source (urea/CAN) in split doses; check water and roots first.",
+P:"Band a soluble P source at sowing (DAP/TSP); correct acidity, since P availability drops below pH ~5.5.",
+K:"Apply MOP or SOP; split K on light soils and keep it balanced against Mg.",
+Mg:"Apply epsom salt (foliar or soil) or dolomitic lime if pH is also low.",
+Fe:"Check pH and waterlogging; foliar iron chelate gives a quick response.",
+Ca:"Check irrigation consistency; gypsum (soil) or calcium nitrate (fertigation/foliar).",
+S:"Use ammonium sulfate or SOP; common in low-OM, continually cropped soils.",
+Zn:"Soil or foliar zinc sulfate; avoid excessive P, which can induce Zn hunger.",
+B:"Borax at careful rates - the window between deficiency and toxicity is narrow.",
+Mn:"Manganese sulfate foliar spray; confirm pH, since high pH reduces Mn availability.",
+Cu:"Copper sulfate at recommended rates; organic soils commonly respond.",
+Mo:"Liming to raise pH usually corrects Mo; consider seed treatment for brassicas.",
+Stress:"Address water, drainage or salinity before fertilizing - uptake depends on healthy roots."
+};
+
+var refs=[
+["FAO","Global soils, fertilizer and plant nutrition publications","https://www.fao.org/soils-portal/"],
+["USDA NRCS","Nutrient management and 4R principles","https://www.nrcs.usda.gov/getting-assistance/other-topics/nutrient-management"],
+["USDA ARS","Agricultural research and datasets","https://www.ars.usda.gov/"],
+["CABI","Agricultural knowledge and crop information","https://www.cabi.org/"],
+["CGIAR","International agricultural research","https://www.cgiar.org/"],
+["RHS","Plant nutrition and fertilizer reference","https://www.rhs.org.uk/garden-jobs/fertilisers"],
+["NARO Japan","Japanese agricultural research","https://www.naro.go.jp/english/"],
+["Bangladesh Agricultural Research Council","Bangladesh agricultural research coordination","https://barc.gov.bd/"],
+["Bangladesh Agricultural Research Institute","Bangladesh crop/agricultural research","https://bari.gov.bd/"],
+["Bangladesh Rice Research Institute","Rice research","https://brri.gov.bd/"],
+["Soil Resource Development Institute Bangladesh","Soil resources and land information","https://srdi.gov.bd/"],
+["Bangladesh Agricultural University","Agricultural research and education","https://bau.edu.bd/"],
+["Department of Agricultural Extension Bangladesh","Extension information","https://dae.gov.bd/"]
 ];
 
-const areaToHa={ha:1,acre:.404685642,m2:.0001,decimal:.00404685642,katha:.006689,bigha:.13378};
-const $=id=>document.getElementById(id);
+var areaToHa={ha:1,acre:.404685642,m2:.0001,decimal:.00404685642,katha:.006689,bigha:.13378};
+var KEY="aznur_studio_v1";
+var customFerts=[];
+
+/* ================= HELPERS ================= */
+function $(id){return document.getElementById(id);}
+function fmt(n,d){if(d===undefined)d=1;return Number(n).toLocaleString("en-US",{maximumFractionDigits:d});}
+function clampN(v,a,b){v=+v||0;if(v<a)return a;if(v>b)return b;return v;}
+function msg(html,cls){return '<div class="result '+(cls||"")+'">'+html+"</div>";}
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function toast(text,type){
+  var t=document.createElement("div");
+  t.className="toast "+(type||"");
+  t.textContent=text;
+  $("toasts").appendChild(t);
+  requestAnimationFrame(function(){t.classList.add("in");});
+  setTimeout(function(){t.classList.remove("in");setTimeout(function(){if(t.parentNode)t.parentNode.removeChild(t);},300);},3200);
+}
+function fillSelect(id,arr,fmtFn){
+  var el=$(id);if(!el)return;
+  var out="";
+  for(var i=0;i<arr.length;i++){out+='<option value="'+i+'">'+esc(fmtFn(arr[i]))+"</option>";}
+  el.innerHTML=out;
+}
+function allFerts(){return ferts.concat(customFerts);}
+
+/* ================= NAVIGATION ================= */
+var SECTION_NOTES={
+dashboard:"The dashboard reads your farm profile and selected crop to surface targets used by other calculators.",
+fertilizer:"Product rate = (target kg/ha x area ha) / (nutrient % / 100). Verify the analysis printed on the bag.",
+blend:"Sequential allocation: P first, then K, then the N source tops up remaining N. Filler makes up the rest.",
+conversion:"P = P2O5 x 0.4364; P2O5 = P x 2.291. K = K2O x 0.8301; K2O = K x 1.2046.",
+lime:"Product rate = lime requirement / CCE. A real rate should come from a buffer-pH soil test.",
+organic:"Nutrients computed on a dry-matter basis; N discounted by first-year availability you enter.",
+fertigation:"Tank concentration = fertilizer kg / tank L. Delivered nutrient depends on injector ratio and run time.",
+foliar:"Product = concentration (g/L) x total spray volume. Check the g/L nutrient figure against crop tolerance.",
+hydro:"Grams = target mg/L x volume / 1000 / (nutrient % / 100). EC estimate is a rough cross-check only.",
+visual:"Six interactive views. Hover for readouts, drag the ROI chart, export any chart as PNG.",
+crops:"Baseline recommendations from the starter dataset; scale with yield target and local guidance.",
+soil:"Class boundaries are common field-screening ranges; match them to your laboratory method.",
+diagnosis:"A weighted symptom screen, not a lab. Confirm with tissue or soil analysis.",
+nutrient:"Reference table of the twelve essential mineral nutrients.",
+fertdb:"Built-in products plus your custom entries; these feed all calculator dropdowns.",
+budget:"Balance = inputs - crop removal. Persistent K deficits mine the soil; large N surpluses risk losses.",
+economics:"ROI = (added value - fertilizer cost) / fertilizer cost.",
+environment:"A transparent 4R screening index from your 0-10 scores; rank fields with it.",
+planner:"Crop need scaled from the 5 t/ha baseline, minus soil supply, split into a default schedule.",
+reference:"External organizations for provenance; verify numbers against current local sources.",
+import:"CSV templates show expected headers. Export saves all form values as JSON.",
+settings:"Currency, country and mode are stored locally on this device."
+};
 
 function go(id){
-  document.querySelectorAll(".section").forEach(x=>x.classList.remove("active"));
-  $(id).classList.add("active");
-  document.querySelectorAll("#nav button").forEach(x=>x.classList.toggle("active",x.dataset.section===id));
-  let b=document.querySelector(`#nav button[data-section="${id}"]`);
-  let title=b?b.textContent:"Aznur Fertilizer & Plant Nutrition Studio";
-  $("pageTitle").textContent=title;
-  $("pageSub").textContent="Aznur agricultural calculation and decision-support workspace";
+  var secs=document.querySelectorAll(".section");
+  for(var i=0;i<secs.length;i++)secs[i].classList.remove("active");
+  if($(id))$(id).classList.add("active");
+  var btns=document.querySelectorAll("#nav button");
+  for(var j=0;j<btns.length;j++)btns[j].classList.toggle("active",btns[j].getAttribute("data-section")===id);
+  var b=document.querySelector('#nav button[data-section="'+id+'"]');
+  $("pageTitle").textContent=b?b.textContent:"Aznur Fertilizer & Plant Nutrition Studio";
+  $("pageSub").textContent="Local-first agricultural calculation and decision-support system";
+  if(SECTION_NOTES[id])$("notes").textContent=SECTION_NOTES[id];
   updateContext();
-  window.scrollTo({top:0,behavior:"smooth"});
+  closeMenu();
+  var m=document.querySelector(".main");
+  if(m)m.scrollTop=0;
 }
+function toggleMenu(){$("sidebar").classList.toggle("open");}
+function closeMenu(){if($(window.innerWidth>900?"__none__":"sidebar"))$("sidebar").classList.remove("open");}
 
-function toggleMenu(){
-  $("sidebar").classList.toggle("open");
-}
-
-function fillSelect(id,arr,fmt=x=>x.name){
-  $(id).innerHTML=arr.map((x,i)=>`<option value="${i}">${fmt(x)}</option>`).join("");
-}
-
-function init(){
-  ["dashCrop","cropSelect","planCrop"].forEach(id=>fillSelect(id,crops));
-  ["fProduct","bNs","bPs","bKs","planNSource","planPSource","planKSource"].forEach(id=>fillSelect(id,ferts));
-  fillSelect("orgMat",organics);
-  $("symptoms").innerHTML=symptomDefs.map((s,i)=>`<label><input type="checkbox" value="${i}">${s[0]}</label>`).join("");
-  $("nutTable").querySelector("tbody").innerHTML=nutrients.map(n=>`<tr><td><b>${n[0]}</b></td><td>${n[1]}</td><td>${n[2]}</td><td>${n[3]}</td><td>${n[4]}</td></tr>`).join("");
-  $("refTable").innerHTML=refs.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td><a href="${r[2]}" target="_blank" rel="noopener">${r[2]}</a></td></tr>`).join("");
-  renderFertDB();
-  renderCrop();
-  updateContext();
-  loadState();
-  $("dashCrop").addEventListener("change",()=>{renderCrop();updateContext()});
-  $("cropSelect").addEventListener("change",renderCrop);
-}
-
+/* ================= CONTEXT / DASHBOARD ================= */
 function updateContext(){
-  $("ctxCrop").textContent=crops[$("dashCrop")?.value||0]?.name||"—";
-  $("ctxCountry").textContent=$("country")?.value||"Bangladesh";
+  var c=crops[+$("dashCrop").value]||crops[0];
+  $("ctxCrop").textContent=c.name;
+  $("ctxCountry").textContent=$("country").value;
 }
-
-function calcFertilizer(){
-  let area=+$("fArea").value||0,ha=area*(areaToHa[$("fUnit").value]||1),rate=+$("fRate").value||0,pct=+$("fPct").value||0;
-  let kgNutr=ha*rate,kgF=pct?kgNutr/(pct/100):0,f=ferts[$("fProduct").value];
-  $("fertResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>Area</small><strong>${ha.toFixed(4)} ha</strong></div><div class="metric"><small>Nutrient required</small><strong>${kgNutr.toFixed(2)} kg</strong></div><div class="metric"><small>Fertilizer required</small><strong>${kgF.toFixed(2)} kg</strong></div><div class="metric"><small>Approx. 50 kg bags</small><strong>${(kgF/50).toFixed(2)}</strong></div></div><div class="result"><b>Source:</b> ${f.name}. <b>Input concentration:</b> ${pct}%.</div><div class="notice">Calculated value. It satisfies the entered nutrient target mathematically; agronomic suitability still depends on crop, soil, timing and local recommendation.</div>`;
-  $("mN").textContent=$("fNut").value==="N"?kgNutr.toFixed(1)+" kg":"—";
-  saveState();
-}
-
-function calcBlend(){
-  let mass=+$("bMass").value||0,n=+$("bN").value||0,p=+$("bP").value||0,k=+$("bK").value||0;
-  let ns=ferts[$("bNs").value],ps=ferts[$("bPs").value],ks=ferts[$("bKs").value];
-  let qN=ns.N?n*mass/ns.N:0,qP=ps.P?p*mass/ps.P:0,qK=ks.K?k*mass/ks.K:0,total=qN+qP+qK;
-  $("blendResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>${ns.name}</small><strong>${qN.toFixed(2)} kg</strong></div><div class="metric"><small>${ps.name}</small><strong>${qP.toFixed(2)} kg</strong></div><div class="metric"><small>${ks.name}</small><strong>${qK.toFixed(2)} kg</strong></div><div class="metric"><small>Source total</small><strong>${total.toFixed(2)} kg</strong></div></div><div class="${total>mass?'result danger':'result'}">${total>mass?"The independent-source solution exceeds the requested blend mass; this target needs a constrained blend solver or additional filler/secondary-source logic.":"This is a simple source-quantity solution, not a full constrained commercial blending formulation."}</div>`;
-}
-
-function convert(){
-  let v=+$("convValue").value||0,a=$("convFrom").value,b=$("convTo").value;
-  let x=v;
-  if(a!==b){
-    if(a==="P")x*=2.291;
-    if(a==="P2O5")x*=.4364;
-    if(a==="K")x*=1.2046;
-    if(a==="K2O")x*=.8301;
-    if(a.startsWith("P")&&b==="K")return $("convResult").innerHTML=`<div class="result danger">P and K are different nutrients and cannot be directly converted.</div>`;
-    if(a.startsWith("K")&&b==="P")return $("convResult").innerHTML=`<div class="result danger">P and K are different nutrients and cannot be directly converted.</div>`;
-    if(b==="P")x*=.4364;
-    if(b==="P2O5")x*=2.291;
-    if(b==="K")x*=.8301;
-    if(b==="K2O")x*=1.2046;
-  }
-  $("convResult").innerHTML=`<div class="metric"><small>Converted value</small><strong>${x.toFixed(4)} ${b}</strong></div>`;
-}
-
-function calcLime(){
-  let q=(+$("limeArea").value||0)*(+$("limeBase").value||0)*(100/(+$("limePurity").value||100))*(+$("limeAdj").value||1);
-  $("limeResult").innerHTML=`<div class="result"><b>${q.toFixed(1)} kg total lime</b><br>${(q/(+$("limeArea").value||1)).toFixed(1)} kg/ha adjusted.</div>`;
-}
-
-function calcGypsum(){
-  let q=(+$("gArea").value||0)*(+$("gBase").value||0)*(100/(+$("gPurity").value||100));
-  $("gypsumResult").innerHTML=`<div class="result"><b>${q.toFixed(1)} kg total gypsum</b><br>Purity-adjusted calculation.</div>`;
-}
-
-function calcOrganic(){
-  let m=+$("orgMass").value||0,dry=m*(1-(+$("orgMoist").value||0)/100),n=dry*(+$("orgN").value||0)/100,p=dry*(+$("orgP").value||0)/100,k=dry*(+$("orgK").value||0)/100,an=n*(+$("orgAvail").value||0)/100;
-  $("orgResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>Dry matter</small><strong>${dry.toFixed(1)} kg</strong></div><div class="metric"><small>Total N</small><strong>${n.toFixed(2)} kg</strong></div><div class="metric"><small>Available N assumption</small><strong>${an.toFixed(2)} kg</strong></div><div class="metric"><small>P₂O₅</small><strong>${p.toFixed(2)} kg</strong></div><div class="metric"><small>K₂O</small><strong>${k.toFixed(2)} kg</strong></div></div>`;
-}
-
-function calcCN(){
-  let c=+$("cnC").value||0,n=+$("cnN").value||0;
-  $("cnResult").innerHTML=`<div class="result"><b>C:N = ${n?(c/n).toFixed(1):"—"}</b></div>`;
-}
-
-function calcFertigation(){
-  let area=+$("fgArea").value||0,rate=+$("fgRate").value||0,pct=+$("fgPct").value||0,tank=+$("fgTank").value||0,ratio=+$("fgRatio").value||0,flow=+$("fgFlow").value||0,time=+$("fgTime").value||0,kg=area*rate/(pct/100),water=flow*time,stock=kg/(tank/1000||1);
-  $("fgResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>Fertilizer required</small><strong>${kg.toFixed(2)} kg</strong></div><div class="metric"><small>Stock concentration</small><strong>${stock.toFixed(2)} kg/L*</strong></div><div class="metric"><small>Irrigation volume</small><strong>${water.toFixed(1)} L</strong></div><div class="metric"><small>Injector ratio</small><strong>1:${ratio}</strong></div></div><div class="notice">*A stock concentration above product solubility is not feasible. Check the product label and injector design.</div>`;
-}
-
-function calcFoliar(){
-  let a=+$("flArea").value||0,v=+$("flVol").value||0,c=+$("flConc").value||0,p=+$("flPct").value||0,total=a*v*c/1000,n=total*p/100;
-  $("flResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>Total spray water</small><strong>${(a*v).toFixed(1)} L</strong></div><div class="metric"><small>Product</small><strong>${total.toFixed(2)} kg</strong></div><div class="metric"><small>Nutrient supplied</small><strong>${n.toFixed(2)} kg</strong></div></div>`;
-}
-
-function calcHydro(){
-  let v=+$("hyVol").value||0,n=+$("hyN").value||0,p=+$("hyPct").value||0,kg=v*n/1e6/(p/100);
-  $("hyResult").innerHTML=`<div class="result">Approx. fertilizer required to supply target N: <b>${(kg*1000).toFixed(2)} g</b>. This does not formulate the complete hydroponic recipe.</div>`;
-}
-
-function renderCrop(){
-  let c=crops[$("cropSelect")?.value||$("dashCrop")?.value||0];
-  if(!c)return;
-  $("cropInfo").innerHTML=`<div class="three"><div class="metric"><small>Scientific name</small><strong>${c.scientific}</strong></div><div class="metric"><small>pH</small><strong>${c.pH}</strong></div><div class="metric"><small>Duration</small><strong>${c.duration}</strong></div></div><div class="result"><b>Starter reference targets:</b> N ${c.N}, P₂O₅ ${c.P}, K₂O ${c.K} kg/ha. These are dataset placeholders/reference values, not universal recommendations.</div><p><b>Growth stages:</b> ${c.stages}</p><p><b>Common nutrition concerns:</b> ${c.def}</p><p class="muted">${c.notes}</p>`;
+function updateDashboard(){
+  var c=crops[+$("dashCrop").value]||crops[0];
   $("mN").textContent=c.N+" kg/ha";
   $("mP").textContent=c.P+" kg/ha";
   $("mK").textContent=c.K+" kg/ha";
-}
-
-function interpretSoil(){
-  let ph=+$("sPH").value,ec=+$("sEC").value,om=+$("sOM").value,zn=+$("sZn").value;
-  let phmsg=ph<5.5?"Strongly acidic":ph<6?"Acidic":ph<=7.2?"Near neutral / suitable for many crops":ph<=8?"Alkaline":"Strongly alkaline";
-  let ecmsg=ec<2?"Generally low salinity risk for many crops":"Salinity may restrict sensitive crops";
-  let znmsg=zn<1?"Potentially low Zn (method-dependent)":zn<2?"Check crop/soil-test interpretation":"Likely adequate under many reference schemes";
-  $("soilResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>pH interpretation</small><strong>${phmsg}</strong></div><div class="metric"><small>EC</small><strong>${ecmsg}</strong></div><div class="metric"><small>Organic matter</small><strong>${om<1?"Low":om<3?"Moderate":"High"}</strong></div><div class="metric"><small>Zn screening</small><strong>${znmsg}</strong></div></div><div class="notice">Soil-test categories depend on extraction method, soil class, crop and local calibration. Use the laboratory's reference ranges where available.</div>`;
-}
-
-function diagnose(){
-  let scores={};
-  document.querySelectorAll("#symptoms input:checked").forEach(x=>{let s=symptomDefs[+x.value];scores[s[1]]=(scores[s[1]]||0)+s[2]});
-  let out=Object.entries(scores).filter(x=>x[0]!=="Stress").sort((a,b)=>b[1]-a[1]);
-  $("diagResult").innerHTML=out.length?out.map((x,i)=>`<div class="result"><b>${i+1}. ${x[0]}</b> — ${x[1]>=7?"Higher screening likelihood":x[1]>=4?"Moderate screening likelihood":"Lower screening likelihood"}</div>`).join("")+`<div class="notice">Visual symptoms overlap among nutrient disorders, pests, diseases, drought, salinity and root problems. Confirm important diagnoses with soil/plant tissue testing.</div>`:`<div class="notice">Select symptoms to generate a screening assessment.</div>`;
-}
-
-function renderFertDB(){
-  let q=($("fertSearch")?.value||"").toLowerCase();
-  $("fertTable").querySelector("tbody").innerHTML=ferts.filter(f=>JSON.stringify(f).toLowerCase().includes(q)).map(f=>`<tr><td><b>${f.name}</b></td><td>${f.formula}<br><span class="pill">${f.type}</span></td><td>${f.N}</td><td>${f.P}</td><td>${f.K}</td><td>${f.other}</td><td>${f.use}</td></tr>`).join("");
-}
-
-function addCustomFertilizer(){
-  let name=prompt("Product name");
-  if(!name)return;
-  let N=+prompt("N %","0")||0,P=+prompt("P₂O₅ %","0")||0,K=+prompt("K₂O %","0")||0;
-  ferts.push({name,type:"Custom",formula:"User defined",N,P,K,other:"User-defined product",use:"User-defined"});
-  renderFertDB();
-  fillSelect("fProduct",ferts);
-  ["bNs","bPs","bKs","planNSource","planPSource","planKSource"].forEach(id=>fillSelect(id,ferts));
-  saveState();
-}
-
-function calcBudget(){
-  let n=(+$("bnIn").value||0)-(+$("bnOut").value||0),p=(+$("bpIn").value||0)-(+$("bpOut").value||0),k=(+$("bkIn").value||0)-(+$("bkOut").value||0);
-  $("budgetResult").innerHTML=`<div class="metric-grid">${[["N",n],["P",p],["K",k]].map(x=>`<div class="metric"><small>${x[0]} balance</small><strong class="${x[1]<0?'dangertext':x[1]>0?'warntext':'good'}">${x[1].toFixed(1)} kg/ha</strong></div>`).join("")}</div><div class="notice">Positive balance means inputs exceed entered crop removal; it is not automatically beneficial or harmful.</div>`;
-}
-
-function calcEconomics(){
-  let cost=(+$("ecoQty").value||0)*(+$("ecoPrice").value||0),rev=(+$("ecoYield").value||0)*(+$("ecoValue").value||0),roi=cost?((rev-cost)/cost)*100:0;
-  $("ecoResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>Fertilizer cost</small><strong>${cost.toFixed(2)} ${$("cur").value}</strong></div><div class="metric"><small>Value increase</small><strong>${rev.toFixed(2)} ${$("cur").value}</strong></div><div class="metric"><small>Simple ROI</small><strong>${roi.toFixed(1)}%</strong></div></div><div class="notice">ROI depends on the assumed yield response and crop price; it is not a guaranteed return.</div>`;
-}
-
-function calcEnvironment(){
-  let n=+$("envN").value,r=+$("envRain").value,d=+$("envDrain").value,s=+$("envSlope").value,c=+$("envCover").value,p=+$("envPlace").value;
-  let score=Math.min(100,n/3+r*4+(10-d)*3+s*3+(10-c)*2+(10-p)*2);
-  let level=score<30?"LOW":score<55?"MODERATE":score<75?"HIGH":"VERY HIGH";
-  $("envResult").innerHTML=`<div class="metric"><small>Screening nutrient-loss risk</small><strong>${level} (${score.toFixed(0)}/100)</strong></div><div class="notice">This is a qualitative screening index created from your inputs, not a calibrated loss model or regulatory measurement.</div>`;
-}
-
-function buildPlan(){
-  let c=crops[$("planCrop").value],a=+$("planArea").value||1,y=+$("planYield").value||1;
-  let n=Math.max(0,c.N*(y/5)-+$("planSN").value),p=Math.max(0,c.P*(y/5)-+$("planSP").value),k=Math.max(0,c.K*(y/5)-+$("planSK").value);
-  let nf=ferts[$("planNSource").value],pf=ferts[$("planPSource").value],kf=ferts[$("planKSource").value];
-  let qn=n/(nf.N/100),qp=pf.P?p/(pf.P/100):0,qk=k/(kf.K/100);
-  $("planResult").innerHTML=`<div class="metric-grid"><div class="metric"><small>N gap</small><strong>${n.toFixed(1)} kg/ha</strong></div><div class="metric"><small>P₂O₅ gap</small><strong>${p.toFixed(1)} kg/ha</strong></div><div class="metric"><small>K₂O gap</small><strong>${k.toFixed(1)} kg/ha</strong></div><div class="metric"><small>Whole-field fertilizer</small><strong>${((qn+qp+qk)*a).toFixed(1)} kg</strong></div></div><table><tr><th>Source</th><th>Purpose</th><th>Rate kg/ha</th><th>Total kg</th></tr><tr><td>${nf.name}</td><td>N</td><td>${qn.toFixed(1)}</td><td>${(qn*a).toFixed(1)}</td></tr><tr><td>${pf.name}</td><td>P₂O₅</td><td>${qp.toFixed(1)}</td><td>${(qp*a).toFixed(1)}</td></tr><tr><td>${kf.name}</td><td>K₂O</td><td>${qk.toFixed(1)}</td><td>${(qk*a).toFixed(1)}</td></tr></table><div class="notice warn">This planner uses the starter crop dataset. Replace it with region-, soil- and yield-calibrated recommendations before field use.</div>`;
-}
-
-function saveState(){
-  let state={ferts,country:$("country")?.value||"Bangladesh",farm:$("farmName")?.value||"My Field"};
-  localStorage.setItem("aznur_fertilizer_state",JSON.stringify(state));
+  $("mCost").textContent=fmt(c.N+c.P+c.K,0)+" kg/ha";
+  $("dashboardSummary").innerHTML=
+    msg("Selected crop <b>"+esc(c.name)+"</b> ("+esc(c.scientific)+") - "+esc(c.category)+", "+esc(c.duration)+", suitable pH "+esc(c.pH)+".")+
+    msg("Deficiency watch list: <b>"+esc(c.def)+"</b>","warn")+
+    "<p class='muted' style='font-size:12.5px'>"+esc(c.notes)+"</p>";
   updateContext();
 }
+function renderCropInfo(){
+  var c=crops[+$("cropSelect").value]||crops[0];
+  var y=+$("yieldTarget").value||5;
+  var s=y/5;
+  $("cropInfo").innerHTML=
+    "<h3>"+esc(c.name)+" <span class='muted' style='font-weight:400;font-style:italic'>"+esc(c.scientific)+"</span></h3>"+
+    "<table>"+
+    "<tr><td class='muted'>Category</td><td>"+esc(c.category)+"</td></tr>"+
+    "<tr><td class='muted'>Suitable pH</td><td>"+esc(c.pH)+"</td></tr>"+
+    "<tr><td class='muted'>Duration</td><td>"+esc(c.duration)+"</td></tr>"+
+    "<tr><td class='muted'>Growth stages</td><td>"+esc(c.stages)+"</td></tr>"+
+    "<tr><td class='muted'>Deficiency watch</td><td>"+esc(c.def)+"</td></tr>"+
+    "</table>"+
+    "<h3 style='margin-top:14px'>Baseline vs scaled need (kg/ha)</h3>"+
+    "<table><tr><th>Nutrient</th><th>Baseline</th><th>At "+fmt(y,1)+" t/ha</th></tr>"+
+    "<tr><td>N</td><td>"+c.N+"</td><td>"+fmt(c.N*s,0)+"</td></tr>"+
+    "<tr><td>P\u2082O\u2085</td><td>"+c.P+"</td><td>"+fmt(c.P*s,0)+"</td></tr>"+
+    "<tr><td>K\u2082O</td><td>"+c.K+"</td><td>"+fmt(c.K*s,0)+"</td></tr></table>"+
+    "<p class='muted' style='font-size:12px;margin-top:8px'>"+esc(c.notes)+"</p>";
+}
 
-function loadState(){
+/* ================= FERTILIZER RATE ================= */
+function syncFertPct(){
+  var f=allFerts()[+$("fProduct").value]||allFerts()[0];
+  var map={N:"N",P2O5:"P",K2O:"K"};
+  var k=map[$("fNut").value];
+  $("fPct").value=(k&&f[k]!==undefined)?f[k]:0;
+}
+function calcFertilizer(){
+  var ha=(+$("fArea").value||0)*areaToHa[$("fUnit").value];
+  var nut=$("fNut").value;
+  var labels={N:"N",P2O5:"P\u2082O\u2085",K2O:"K\u2082O",S:"S",Ca:"Ca",Mg:"Mg",Zn:"Zn",B:"B"};
+  var rate=+$("fRate").value||0,pct=+$("fPct").value||0;
+  var box=$("fertResult");
+  if(ha<=0){box.innerHTML=msg("Enter an area greater than zero.","warn");return;}
+  if(pct<=0){box.innerHTML=msg("Nutrient percentage must be above zero. Pick a product that contains <b>"+labels[nut]+"</b> or enter the analysis manually.","danger");return;}
+  var total=rate*ha,qty=total/(pct/100);
+  var f=allFerts()[+$("fProduct").value];
+  box.innerHTML=
+    "<div class='metric-grid' style='margin:12px 0'>"+
+    "<div class='metric'><small>Product required</small><strong>"+fmt(qty,1)+" kg</strong></div>"+
+    "<div class='metric'><small>Product per ha</small><strong>"+fmt(rate/(pct/100),1)+" kg/ha</strong></div>"+
+    "<div class='metric'><small>50 kg bags</small><strong>"+fmt(qty/50,2)+"</strong></div>"+
+    "<div class='metric'><small>"+labels[nut]+" delivered</small><strong>"+fmt(total,1)+" kg</strong></div>"+
+    "</div>"+
+    msg("To supply <b>"+fmt(rate,1)+" kg "+labels[nut]+"/ha</b> over <b>"+fmt(ha,2)+" ha</b> with a product containing <b>"+fmt(pct,2)+"% "+labels[nut]+"</b>"+(f?" ("+esc(f.name)+")":"")+", apply <b>"+fmt(qty,1)+" kg of product in total</b>.")+
+    (qty/ha>100?msg("Rates above 100 kg/ha of a concentrated product are usually split. Check placement and timing.","warn"):"");
+}
+function clearForm(sec){
+  var inputs=document.querySelectorAll("#"+sec+" input, #"+sec+" select");
+  for(var i=0;i<inputs.length;i++){
+    var d=inputs[i].getAttribute("data-default");
+    if(d!==null&&d!==undefined)inputs[i].value=d;
+  }
+  syncFertPct();
+  var box=$(sec+"Result");
+  if(!box){
+    var map={fertilizer:"fertResult",blend:"blendResult",conversion:"convResult",lime:"limeResult",organic:"orgResult",fertigation:"fgResult",foliar:"flResult",hydro:"hyResult",soil:"soilResult",diagnosis:"diagResult",budget:"budgetResult",economics:"ecoResult",environment:"envResult",planner:"planResult"};
+    box=$(map[sec]);
+  }
+  if(box)box.innerHTML="";
+  toast("Form reset.");
+}
+
+/* ================= BLEND ================= */
+function calcBlend(){
+  var mass=+$("bMass").value||0;
+  var tN=(+$("bN").value||0)/100*mass,tP=(+$("bP").value||0)/100*mass,tK=(+$("bK").value||0)/100*mass;
+  var ns=allFerts()[+$("bNs").value],ps=allFerts()[+$("bPs").value],ks=allFerts()[+$("bKs").value];
+  var box=$("blendResult");
+  if(mass<=0){box.innerHTML=msg("Enter a blend mass above zero.","warn");return;}
+  if(!ps.P||!ks.K||!ns.N){box.innerHTML=msg("Each source must contain its nutrient: the P source needs P\u2082O\u2085, the K source K\u2082O and the N source N.","danger");return;}
+  var kgP=tP/(ps.P/100);
+  var kgK=tK/(ks.K/100);
+  var nOthers=kgP*ps.N/100+kgK*ks.N/100;
+  var nRemain=tN-nOthers;
+  var kgN=nRemain>0?nRemain/(ns.N/100):0;
+  var used=kgP+kgK+kgN,filler=mass-used;
+  var aN=(kgN*ns.N/100+nOthers)/mass*100;
+  var aP=kgP*ps.P/100/mass*100,aK=kgK*ks.K/100/mass*100;
+  var rows=[["P source - "+ps.name,kgP],["K source - "+ks.name,kgK],["N source - "+ns.name,kgN]];
+  if(filler>0)rows.push(["Inert filler",filler]);
+  var html="<div class='tablewrap'><table><tr><th>Component</th><th>kg</th><th>% of blend</th></tr>";
+  for(var i=0;i<rows.length;i++)html+="<tr><td>"+esc(rows[i][0])+"</td><td>"+fmt(rows[i][1],1)+"</td><td>"+fmt(rows[i][1]/mass*100,1)+"%</td></tr>";
+  html+="</table></div>";
+  html+="<div class='metric-grid' style='margin:12px 0'>"+
+    "<div class='metric'><small>Achieved N</small><strong>"+fmt(aN,2)+"%</strong></div>"+
+    "<div class='metric'><small>Achieved P\u2082O\u2085</small><strong>"+fmt(aP,2)+"%</strong></div>"+
+    "<div class='metric'><small>Achieved K\u2082O</small><strong>"+fmt(aK,2)+"%</strong></div>"+
+    "<div class='metric'><small>Total mass</small><strong>"+fmt(used+Math.max(0,filler),1)+" kg</strong></div></div>";
+  if(nRemain<0)html+=msg("P and K sources already supply <b>"+fmt(nOthers,1)+" kg N</b> - more than the "+fmt(tN,1)+" kg target. The blend over-delivers N; consider TSP/MOP as P/K sources.","warn");
+  if(filler<0)html+=msg("Components exceed the target mass by <b>"+fmt(-filler,1)+" kg</b>. Raise total mass to about "+fmt(used,0)+" kg or lower the targets.","danger");
+  else html+=msg("Formulation closes with <b>"+fmt(filler,1)+" kg</b> ("+fmt(filler/mass*100,1)+"%) inert filler.","good");
+  box.innerHTML=html;
+}
+
+/* ================= CONVERSION ================= */
+function convert(){
+  var v=+$("convValue").value||0;
+  var from=$("convFrom").value,to=$("convTo").value;
+  var nm={P:"P",P2O5:"P\u2082O\u2085",K:"K",K2O:"K\u2082O"};
+  var F={};
+  if(from==="P2O5"){F.P=v*.4364;F.P2O5=v;}
+  else if(from==="P"){F.P=v;F.P2O5=v*2.291;}
+  else if(from==="K2O"){F.K=v*.8301;F.K2O=v;}
+  else{F.K=v;F.K2O=v*1.2046;}
+  var box=$("convResult");
+  if(from===to){box.innerHTML=msg(fmt(v,2)+" "+nm[from]+" is "+fmt(v,2)+" - same unit selected.");return;}
+  var out=F[to];
+  if(out===undefined){box.innerHTML=msg("Conversion pair not supported (P-forms only convert to P-forms, K to K).","warn");return;}
+  box.innerHTML=msg("<b>"+fmt(v,2)+" "+nm[from]+" = "+fmt(out,4)+" "+nm[to]+"</b>");
+}
+
+/* ================= LIME / GYPSUM ================= */
+function calcLime(){
+  var ha=+$("limeArea").value||0,base=+$("limeBase").value||0,cce=+$("limePurity").value||0,adj=+$("limeAdj").value||1;
+  var box=$("limeResult");
+  if(cce<=0){box.innerHTML=msg("Purity / CCE must be above zero.","danger");return;}
+  var need=base*adj,perHa=need/(cce/100);
+  box.innerHTML="<div class='metric-grid' style='margin:12px 0'>"+
+    "<div class='metric'><small>Pure CaCO\u2083 needed</small><strong>"+fmt(need,0)+" kg/ha</strong></div>"+
+    "<div class='metric'><small>Product @ "+fmt(cce,0)+"% CCE</small><strong>"+fmt(perHa,0)+" kg/ha</strong></div>"+
+    "<div class='metric'><small>Total for "+fmt(ha,2)+" ha</small><strong>"+fmt(perHa*ha/1000,2)+" t</strong></div>"+
+    "<div class='metric'><small>50 kg bags</small><strong>"+fmt(perHa*ha/50,1)+"</strong></div></div>"+
+    msg("Incorporate into the topsoil and allow 3-6 months before re-testing pH.");
+}
+function calcGypsum(){
+  var ha=+$("gArea").value||0,base=+$("gBase").value||0,pur=+$("gPurity").value||0;
+  var box=$("gypsumResult");
+  if(pur<=0){box.innerHTML=msg("Purity must be above zero.","danger");return;}
+  var perHa=base/(pur/100),total=perHa*ha;
+  box.innerHTML="<div class='metric-grid' style='margin:12px 0'>"+
+    "<div class='metric'><small>Product @ "+fmt(pur,0)+"% purity</small><strong>"+fmt(perHa,0)+" kg/ha</strong></div>"+
+    "<div class='metric'><small>Total for "+fmt(ha,2)+" ha</small><strong>"+fmt(total/1000,2)+" t</strong></div>"+
+    "<div class='metric'><small>Ca supplied</small><strong>"+fmt(total*.233,0)+" kg</strong></div>"+
+    "<div class='metric'><small>S supplied</small><strong>"+fmt(total*.186,0)+" kg</strong></div></div>"+
+    msg("Gypsum supplies Ca and S and helps sodic soils - it does not raise pH on most soils.","warn");
+}
+
+/* ================= ORGANIC / C:N ================= */
+function calcOrganic(){
+  var fresh=+$("orgMass").value||0,moist=clampN(+$("orgMoist").value,0,100);
+  var nP=+$("orgN").value||0,pP=+$("orgP").value||0,kP=+$("orgK").value||0,av=clampN(+$("orgAvail").value,0,100);
+  var dry=fresh*(1-moist/100);
+  var N=dry*nP/100,P=dry*pP/100,K=dry*kP/100;
+  $("orgResult").innerHTML=
+    msg("<b>"+fmt(fresh,0)+" kg</b> fresh material at "+fmt(moist,0)+"% moisture = <b>"+fmt(dry,0)+" kg dry matter</b>.")+
+    "<div class='tablewrap'><table><tr><th>Nutrient</th><th>Total in material</th><th>First-year estimate</th></tr>"+
+    "<tr><td>N</td><td>"+fmt(N,1)+" kg</td><td>"+fmt(N*av/100,1)+" kg ("+av+"%)</td></tr>"+
+    "<tr><td>P\u2082O\u2085</td><td>"+fmt(P,1)+" kg</td><td>"+fmt(P*.6,1)+" kg (~60%)</td></tr>"+
+    "<tr><td>K\u2082O</td><td>"+fmt(K,1)+" kg</td><td>"+fmt(K*.8,1)+" kg (~80%)</td></tr></table></div>"+
+    msg("P and K availability from manure/compost is typically 50-80% in year one; N availability is the figure you entered.","warn");
+}
+function calcCN(){
+  var c=+$("cnC").value||0,n=+$("cnN").value||0,box=$("cnResult");
+  if(n<=0){box.innerHTML=msg("Nitrogen mass must be above zero.","danger");return;}
+  var r=c/n,cls,text;
+  if(r<20){cls="good";text="Below 20 - N mineralizes readily; some N loss is possible.";}
+  else if(r<=30){cls="good";text="20-30 - the sweet spot for composting.";}
+  else{cls="warn";text="Above 30 - microbes immobilize N; add an N-rich material.";}
+  box.innerHTML=msg("C:N ratio = <b>"+fmt(r,1)+" : 1</b>",cls)+"<p class='muted' style='margin-top:6px'>"+text+"</p>";
+}
+
+/* ================= FERTIGATION ================= */
+function calcFertigation(){
+  var area=+$("fgArea").value||0,rate=+$("fgRate").value||0,pct=+$("fgPct").value||0;
+  var tank=+$("fgTank").value||0,ratio=+$("fgRatio").value||0,flow=+$("fgFlow").value||0,time=+$("fgTime").value||0;
+  var box=$("fgResult");
+  if(pct<=0||tank<=0||ratio<=0||flow<=0){box.innerHTML=msg("Nutrient %, tank volume, injector ratio and flow must be above zero.","danger");return;}
+  var need=rate*area;
+  var fertKg=need/(pct/100);
+  var conc=fertKg*1000/tank;
+  var water=flow*time;
+  var stockL=water/ratio;
+  var delivered=stockL*conc*(pct/100)/1000;
+  var pctTarget=need>0?delivered/need*100:0;
+  var cls=(pctTarget>=95&&pctTarget<=110)?"good":(Math.abs(pctTarget-100)>20?"warn":"");
+  box.innerHTML="<div class='metric-grid' style='margin:12px 0'>"+
+    "<div class='metric'><small>Nutrient needed</small><strong>"+fmt(need,1)+" kg</strong></div>"+
+    "<div class='metric'><small>Fertilizer for tank</small><strong>"+fmt(fertKg,1)+" kg</strong></div>"+
+    "<div class='metric'><small>Stock concentration</small><strong>"+fmt(conc,1)+" g/L</strong></div>"+
+    "<div class='metric'><small>In irrigation water</small><strong>"+fmt(conc*1000/ratio,0)+" mg/L</strong></div></div>"+
+    msg("Over "+fmt(time,0)+" min the system applies "+fmt(water,0)+" L water, drawing <b>"+fmt(stockL,1)+" L of stock</b> and delivering <b>"+fmt(delivered,2)+" kg nutrient</b> - <b>"+fmt(pctTarget,0)+"% of the "+fmt(need,1)+" kg target</b>.",cls)+
+    (conc>250?msg("Stock concentration above 250 g/L - check product solubility before mixing.","warn"):"");
+}
+
+/* ================= FOLIAR ================= */
+function calcFoliar(){
+  var area=+$("flArea").value||0,vol=+$("flVol").value||0,conc=+$("flConc").value||0,pct=+$("flPct").value||0;
+  var box=$("flResult");
+  if(area<=0){box.innerHTML=msg("Spray area must be above zero.","warn");return;}
+  var totalL=area*vol;
+  var productKg=conc*totalL/1000;
+  var nutKg=productKg*pct/100;
+  var nutGL=conc*pct/100;
+  box.innerHTML="<div class='metric-grid' style='margin:12px 0'>"+
+    "<div class='metric'><small>Total spray volume</small><strong>"+fmt(totalL,0)+" L</strong></div>"+
+    "<div class='metric'><small>Product needed</small><strong>"+fmt(productKg,2)+" kg</strong></div>"+
+    "<div class='metric'><small>Nutrient delivered</small><strong>"+fmt(nutKg,2)+" kg</strong></div>"+
+    "<div class='metric'><small>Nutrient per ha</small><strong>"+fmt(nutKg/area,2)+" kg/ha</strong></div></div>"+
+    msg("Spray contains <b>"+fmt(nutGL,2)+" g nutrient per litre</b> ("+fmt(nutGL/10,2)+"% w/v). Apply in calm conditions, morning or evening.")+
+    (nutGL>10?msg("Above 10 g/L, leaf-scorch risk rises for many crops - verify against the product label.","danger"):"");
+}
+
+/* ================= HYDROPONICS ================= */
+function calcHydro(){
+  var vol=+$("hyVol").value||0,tN=+$("hyN").value||0,pct=+$("hyPct").value||0,ec=+$("hyEC").value||0;
+  var box=$("hyResult");
+  if(vol<=0||pct<=0){box.innerHTML=msg("Volume and fertilizer N% must be above zero.","danger");return;}
+  var gramsN=tN*vol/1000;
+  var fertG=gramsN/(pct/100);
+  var tds=fertG/vol*1000;
+  var ecEst=tds/700;
+  box.innerHTML="<div class='metric-grid' style='margin:12px 0'>"+
+    "<div class='metric'><small>Fertilizer to add</small><strong>"+fmt(fertG,1)+" g</strong></div>"+
+    "<div class='metric'><small>Per 10 L</small><strong>"+fmt(fertG/vol*10,2)+" g</strong></div>"+
+    "<div class='metric'><small>Est. EC from this salt</small><strong>"+fmt(ecEst,2)+" dS/m</strong></div>"+
+    "<div class='metric'><small>Target EC</small><strong>"+fmt(ec,2)+" dS/m</strong></div></div>"+
+    msg("Dissolving <b>"+fmt(fertG,1)+" g</b> supplies "+tN+" mg/L N in "+fmt(vol,0)+" L. The rest of your target EC comes from other salts in the full formulation.",ecEst>ec?"warn":"");
+}
+
+/* ================= SOIL ================= */
+function soilClass(kind,v){
+  if(kind==="ph")return v<5.5?["Strongly acidic","low"]:v<6?["Acidic","low"]:v<=7?["Near ideal","ok"]:v<=7.5?["Slightly alkaline","med"]:["Alkaline","low"];
+  if(kind==="ec")return v<1?["Non-saline","ok"]:v<2?["Slightly saline","med"]:v<4?["Moderately saline","low"]:["Strongly saline","low"];
+  if(kind==="om")return v<1?["Low","low"]:v<2.5?["Below target","med"]:v<=4?["Good","ok"]:["High","ok"];
+  if(kind==="cec")return v<6?["Sandy - low retention","low"]:v<12?["Low-medium","med"]:v<=25?["Medium - good retention","ok"]:["High - clay/organic","ok"];
+  if(kind==="n")return v<50?["Low","low"]:v<=120?["Medium","med"]:["High","ok"];
+  if(kind==="p")return v<12?["Low - response likely","low"]:v<=30?["Medium - maintenance","med"]:["High - little P needed","ok"];
+  if(kind==="k")return v<60?["Low","low"]:v<=160?["Medium","med"]:["High","ok"];
+  if(kind==="zn")return v<0.9?["Deficient","low"]:v<=1.5?["Marginal","med"]:v<=8?["Adequate","ok"]:["Excess","low"];
+  return["-","med"];
+}
+function interpretSoil(){
+  var rows=[
+    ["pH",+$("sPH").value,"",soilClass("ph",+$("sPH").value),"Lime generally required below 5.5; micronutrient availability drops above 7.5."],
+    ["EC",+$("sEC").value,"dS/m",soilClass("ec",+$("sEC").value),"Salinity stress - check irrigation water and drainage."],
+    ["Organic matter",+$("sOM").value,"%",soilClass("om",+$("sOM").value),"Build with compost, manure or cover crops."],
+    ["CEC",+$("sCEC").value,"cmol+/kg",soilClass("cec",+$("sCEC").value),"Low CEC soils need smaller, more frequent doses."],
+    ["Available N",+$("sN").value,"kg/ha",soilClass("n",+$("sN").value),"Methods vary - interpret with your lab's reference."],
+    ["Available P",+$("sP").value,"kg/ha",soilClass("p",+$("sP").value),"Band P for cereals where low; watch Zn where very high."],
+    ["Available K",+$("sK").value,"kg/ha",soilClass("k",+$("sK").value),"Balance K against Mg - high K can induce Mg hunger."],
+    ["Zinc",+$("sZn").value,"mg/kg",soilClass("zn",+$("sZn").value),"DTPA-extractable basis."]
+  ];
+  var html="<div class='tablewrap' style='margin:12px 0'><table><tr><th>Parameter</th><th>Value</th><th>Status</th><th>Field note</th></tr>";
+  var lows=0;
+  for(var i=0;i<rows.length;i++){
+    if(rows[i][3][1]==="low")lows++;
+    html+="<tr><td><b>"+rows[i][0]+"</b></td><td>"+fmt(rows[i][1],2)+" "+rows[i][2]+"</td>"+
+      "<td><span class='pill "+rows[i][3][1]+"'>"+rows[i][3][0]+"</span></td><td class='muted'>"+rows[i][4]+"</td></tr>";
+  }
+  html+="</table></div>";
+  if(+$("sPH").value<6)html+=msg("pH "+fmt(+$("sPH").value,1)+" suggests a lime response - see the Lime & Gypsum calculator.","warn");
+  html+=msg(lows===0?"No parameters fall in the low band - a solid starting point.":lows+" parameter(s) in the low band - prioritize these.",lows===0?"good":"warn");
+  $("soilResult").innerHTML=html;
+}
+
+/* ================= DIAGNOSIS ================= */
+function renderSymptoms(){
+  var html="";
+  for(var i=0;i<symptomDefs.length;i++)
+    html+="<label><input type='checkbox' value='"+i+"'><span>"+esc(symptomDefs[i][0])+"</span></label>";
+  $("symptoms").innerHTML=html;
+}
+function diagnose(){
+  var scores={},stress=[];
+  var boxes=document.querySelectorAll("#symptoms input");
+  for(var i=0;i<boxes.length;i++){
+    if(!boxes[i].checked)continue;
+    var s=symptomDefs[+boxes[i].value];
+    if(s[1]==="Stress")stress.push(s[0]);
+    else scores[s[1]]=(scores[s[1]]||0)+s[2];
+  }
+  var box=$("diagResult");
+  var keys=Object.keys(scores);
+  if(!keys.length&&!stress.length){box.innerHTML=msg("Select at least one observed symptom.","warn");return;}
+  keys.sort(function(a,b){return scores[b]-scores[a];});
+  var html="";
+  if(keys.length){
+    html+="<h3 style='margin:14px 0 4px'>Most likely deficiencies</h3>";
+    var max=scores[keys[0]];
+    for(var j=0;j<keys.length;j++){
+      var k=keys[j],pct=Math.round(scores[k]/max*100);
+      html+="<div class='result' style='background:var(--surface-2)'>"+
+        "<div style='display:flex;justify-content:space-between'><b>"+k+"</b><span class='warntext'>"+pct+"% match</span></div>"+
+        "<div class='progress' style='margin:8px 0'><i style='width:"+pct+"%'></i></div>"+
+        "<span class='muted' style='font-size:12.5px'>"+esc(REMEDY[k]||"")+"</span></div>";
+    }
+  }
+  if(stress.length){
+    html+="<h3 style='margin:14px 0 4px'>Environmental stress signals</h3>";
+    for(var m=0;m<stress.length;m++)html+=msg("<b>"+esc(stress[m])+"</b> - "+esc(REMEDY.Stress),"warn");
+  }
+  html+=msg("This screen ranks plausibility from symptom patterns; confirm with soil or leaf-tissue analysis.","warn");
+  box.innerHTML=html;
+}
+
+/* ================= TABLES ================= */
+function renderNutTable(){
+  var html="";
+  for(var i=0;i<nutrients.length;i++){
+    var n=nutrients[i];
+    html+="<tr><td><b>"+n[0]+"</b></td><td>"+esc(n[1])+"</td><td><span class='pill'>"+esc(n[2])+"</span></td><td>"+esc(n[3])+"</td><td class='muted'>"+esc(n[4])+"</td></tr>";
+  }
+  document.querySelector("#nutTable tbody").innerHTML=html;
+}
+function renderRefTable(){
+  var html="";
+  for(var i=0;i<refs.length;i++)
+    html+="<tr><td><b>"+esc(refs[i][0])+"</b></td><td class='muted'>"+esc(refs[i][1])+"</td><td><a href='"+refs[i][2]+"' target='_blank' rel='noopener'>Visit</a></td></tr>";
+  $("refTable").innerHTML=html;
+}
+function renderFertDB(){
+  var q=($("fertSearch").value||"").toLowerCase();
+  var list=allFerts();
+  var html="";
+  var shown=0;
+  for(var i=0;i<list.length;i++){
+    var f=list[i];
+    var hay=(f.name+" "+f.type+" "+(f.other||"")+" "+(f.use||"")).toLowerCase();
+    if(q&&hay.indexOf(q)<0)continue;
+    shown++;
+    html+="<tr><td><b>"+esc(f.name)+"</b>"+(f.custom?" <span class='pill'>custom</span>":"")+"<br><small class='muted' style='font-family:var(--mono)'>"+esc(f.formula||"-")+"</small></td>"+
+      "<td><span class='pill'>"+esc(f.type)+"</span></td><td>"+(f.N||0)+"</td><td>"+(f.P||0)+"</td><td>"+(f.K||0)+"</td>"+
+      "<td class='muted'>"+esc(f.other||"-")+"</td><td class='muted'>"+esc(f.use||"-")+"</td>"+
+      (f.custom?"<td><button class='btn' style='padding:2px 8px;font-size:11px' onclick='delCustomFert("+i+")'>Delete</button></td>":"<td></td>")+"</tr>";
+  }
+  if(!shown)html="<tr><td colspan='8' class='muted' style='text-align:center;padding:24px'>No products match your search.</td></tr>";
+  document.querySelector("#fertTable tbody").innerHTML=html;
+}
+function delCustomFert(idx){
+  var i=idx-ferts.length;
+  if(i<0||i>=customFerts.length)return;
+  customFerts.splice(i,1);
+  fillFertSelects();renderFertDB();saveState();
+  toast("Custom product removed.");
+}
+function addCustomFertilizer(){
+  var name=prompt("Product name (e.g. NPK 10-26-26):");
+  if(!name)return;
+  var n=parseFloat(prompt("N %:","0"))||0;
+  var p=parseFloat(prompt("P2O5 %:","0"))||0;
+  var k=parseFloat(prompt("K2O %:","0"))||0;
+  if(n+p+k<=0){toast("Enter at least one nutrient percentage.","err");return;}
+  customFerts.push({name:name,type:"Custom",formula:"Custom",N:n,P:p,K:k,other:"User-added product",use:"As needed",custom:true});
+  fillFertSelects();renderFertDB();saveState();
+  toast("Product added to the database.");
+}
+
+/* ================= BUDGET ================= */
+function calcBudget(){
+  var rows=[
+    ["N",+$("bnIn").value||0,+$("bnOut").value||0],
+    ["P\u2082O\u2085",+$("bpIn").value||0,+$("bpOut").value||0],
+    ["K\u2082O",+$("bkIn").value||0,+$("bkOut").value||0]
+  ];
+  var html="<div class='tablewrap' style='margin:12px 0'><table><tr><th>Nutrient</th><th>Inputs</th><th>Removal</th><th>Balance</th><th>Reading</th></tr>";
+  for(var i=0;i<rows.length;i++){
+    var bal=rows[i][1]-rows[i][2];
+    var cls=bal<-20?"low":bal>20?"ok":"med";
+    var txt;
+    if(bal<-20)txt=rows[i][0]==="K\u2082O"?"Deficit - soil K mining; raise K inputs.":"Deficit - raise inputs or accept draw-down.";
+    else if(bal>20)txt=rows[i][0]==="N"?"Surplus - leaching and loss risk.":"Surplus - consider trimming inputs.";
+    else txt="Roughly balanced - maintain.";
+    html+="<tr><td><b>"+rows[i][0]+"</b></td><td>"+fmt(rows[i][1],0)+"</td><td>"+fmt(rows[i][2],0)+"</td>"+
+      "<td><span class='pill "+cls+"'>"+(bal>0?"+":"")+fmt(bal,0)+"</span></td><td class='muted'>"+txt+"</td></tr>";
+  }
+  html+="</table></div>";
+  for(var j=0;j<rows.length;j++){
+    var b=rows[j][1]-rows[j][2];
+    var mx=Math.max(rows[j][1],rows[j][2],1);
+    html+="<div style='margin:10px 0'><div style='display:flex;justify-content:space-between;font-size:12.5px;font-weight:600'><span>"+rows[j][0]+"</span><span>"+fmt(rows[j][1],0)+" in / "+fmt(rows[j][2],0)+" out</span></div>"+
+      "<div class='progress' style='margin-top:4px'><i style='width:"+(rows[j][1]/mx*100)+"%;background:"+(b<-20?"var(--error)":b>20?"var(--warning)":"var(--success)")+"'></i></div></div>";
+  }
+  $("budgetResult").innerHTML=html;
+}
+
+/* ================= ECONOMICS ================= */
+function calcEconomics(){
+  var cur=$("cur").value;
+  var sym={BDT:"\u09F3",USD:"$",JPY:"\u00A5",EUR:"\u20AC",GBP:"\u00A3",INR:"\u20B9"}[cur]||"";
+  var qty=+$("ecoQty").value||0,price=+$("ecoPrice").value||0;
+  var y=+$("ecoYield").value||0,val=+$("ecoValue").value||0;
+  var cost=qty*price,gross=y*val,net=gross-cost;
+  var roi=cost>0?net/cost*100:0;
+  var be=val>0?cost/val:0;
+  $("ecoResult").innerHTML="<div class='metric-grid' style='margin:12px 0'>"+
+    "<div class='metric'><small>Fertilizer cost</small><strong>"+sym+fmt(cost,0)+"</strong></div>"+
+    "<div class='metric'><small>Added crop value</small><strong>"+sym+fmt(gross,0)+"</strong></div>"+
+    "<div class='metric'><small>Net return</small><strong style='color:"+(net>=0?"var(--success)":"var(--error)")+"'>"+(net>=0?"+":"")+sym+fmt(net,0)+"</strong></div>"+
+    "<div class='metric'><small>ROI</small><strong style='color:"+(net>=0?"var(--success)":"var(--error)")+"'>"+fmt(roi,0)+"%</strong></div></div>"+
+    msg(net>=0
+      ?"The application pays for itself with <b>"+fmt(y,2)+" t/ha</b> extra yield at "+sym+fmt(val,0)+"/t."
+      :"At these numbers it does <b>not</b> pay - you need more than "+fmt(be,2)+" t/ha extra yield to break even.",
+      net>=0?"good":"danger")+
+    "<p class='muted' style='margin-top:6px'>Break-even yield increase: <b>"+fmt(be,2)+" t/ha</b>.</p>";
+}
+
+/* ================= ENVIRONMENT ================= */
+function calcEnvironment(){
+  var N=+$("envN").value||0;
+  var rain=clampN(+$("envRain").value,0,10);
+  var drain=clampN(+$("envDrain").value,0,10);
+  var slope=clampN(+$("envSlope").value,0,10);
+  var cover=clampN(+$("envCover").value,0,10);
+  var place=clampN(+$("envPlace").value,0,10);
+  var rateF=N/250*10;
+  var runoff=rain*.5+slope*.3+(10-cover)*.2;
+  var leach=rain*.45+(10-drain)*.35+rateF*.2;
+  var volat=(10-place)*.6+(10-rain)*.4;
+  var idx=runoff*.3+leach*.4+volat*.3;
+  function lvl(v){return v<3.3?["var(--success)","Low"]:v<5?["var(--warning)","Moderate"]:v<6.7?["#ea580c","Elevated"]:["var(--error)","High"];}
+  var bars=[["Runoff & erosion risk",runoff],["Leaching risk",leach],["Volatilization risk",volat]];
+  var worst=bars[0];
+  for(var i=1;i<bars.length;i++)if(bars[i][1]>worst[1])worst=bars[i];
+  var advice=[];
+  if(N>180)advice.push("N rate is high - confirm with soil/tissue tests.");
+  if(worst[0].indexOf("Runoff")===0)advice.push("Runoff dominates: avoid spreading before heavy rain and keep soil covered.");
+  if(worst[0].indexOf("Leach")===0)advice.push("Leaching risk: split N into smaller doses and use cover crops.");
+  if(worst[0].indexOf("Volat")===0)advice.push("Volatilization risk: incorporate urea or apply before light rain/irrigation.");
+  var html="<div class='metric-grid' style='margin:12px 0'>"+
+    "<div class='metric'><small>Overall loss-risk index</small><strong>"+fmt(idx,1)+" / 10 - "+lvl(idx)[1]+"</strong></div>"+
+    "<div class='metric'><small>Highest sub-risk</small><strong>"+worst[0].split(" risk")[0]+"</strong></div></div>";
+  for(var j=0;j<bars.length;j++){
+    var l=lvl(bars[j][1]);
+    html+="<div style='margin:10px 0'><div style='display:flex;justify-content:space-between;font-size:12.5px;font-weight:600'><span>"+bars[j][0]+"</span><span>"+fmt(bars[j][1],1)+" / 10 - "+l[1]+"</span></div>"+
+      "<div class='progress' style='margin-top:4px'><i style='width:"+(bars[j][1]*10)+"%;background:"+l[0]+"'></i></div></div>";
+  }
+  if(advice.length)html+=msg("<b>Priority actions</b><br>"+advice.join("<br>"));
+  $("envResult").innerHTML=html;
+}
+
+/* ================= PLANNER ================= */
+function buildPlan(){
+  var c=crops[+$("planCrop").value]||crops[0];
+  var area=+$("planArea").value||0,y=+$("planYield").value||5;
+  var sN=+$("planSN").value||0,sP=+$("planSP").value||0,sK=+$("planSK").value||0;
+  var ns=allFerts()[+$("planNSource").value],ps=allFerts()[+$("planPSource").value],ks=allFerts()[+$("planKSource").value];
+  var box=$("planResult");
+  if(!ns.N||!ps.P||!ks.K){box.innerHTML=msg("The N source needs N, the P source P\u2082O\u2085 and the K source K\u2082O.","danger");return;}
+  var s=y/5;
+  var needN=c.N*s,needP=c.P*s,needK=c.K*s;
+  var gapN=Math.max(0,needN-sN),gapP=Math.max(0,needP-sP),gapK=Math.max(0,needK-sK);
+  var kgN=gapN/(ns.N/100),kgP=gapP/(ps.P/100),kgK=gapK/(ks.K/100);
+  var nFromP=kgP*ps.N/100;
+  var kSplit=gapK>100;
+  var sched=[
+    ["Basal - at sowing",gapN*.3,gapP,kSplit?gapK*.5:gapK],
+    ["Topdress 1 - vegetative",gapN*.4,0,0],
+    ["Topdress 2 - flowering/fruiting",gapN*.3,0,kSplit?gapK*.5:0]
+  ];
+  var html=msg("<b>"+esc(c.name)+"</b> at "+fmt(y,1)+" t/ha needs about <b>"+fmt(needN,0)+" N / "+fmt(needP,0)+" P\u2082O\u2085 / "+fmt(needK,0)+" K\u2082O kg/ha</b> (scaled from the 5 t/ha baseline). Soil supply covers "+fmt(sN,0)+" / "+fmt(sP,0)+" / "+fmt(sK,0)+".")+
+    "<div class='metric-grid' style='margin:12px 0'>"+
+    "<div class='metric'><small>"+esc(ns.name)+" (N gap)</small><strong>"+fmt(kgN,0)+" kg/ha</strong></div>"+
+    "<div class='metric'><small>"+esc(ps.name)+" (P gap)</small><strong>"+fmt(kgP,0)+" kg/ha</strong></div>"+
+    "<div class='metric'><small>"+esc(ks.name)+" (K gap)</small><strong>"+fmt(kgK,0)+" kg/ha</strong></div>"+
+    "<div class='metric'><small>Total for "+fmt(area,2)+" ha</small><strong>"+fmt((kgN+kgP+kgK)*area,0)+" kg</strong></div></div>"+
+    "<div class='tablewrap'><table><tr><th>Application</th><th>N kg/ha</th><th>P\u2082O\u2085 kg/ha</th><th>K\u2082O kg/ha</th></tr>";
+  for(var i=0;i<sched.length;i++)
+    html+="<tr><td>"+sched[i][0]+"</td><td>"+fmt(sched[i][1],0)+"</td><td>"+fmt(sched[i][2],0)+"</td><td>"+fmt(sched[i][3],0)+"</td></tr>";
+  html+="</table></div>";
+  if(nFromP>1)html+=msg("Note: the P source also supplies about <b>"+fmt(nFromP,0)+" kg N/ha</b> - credit it against the N program.","warn");
+  html+=msg("The 30/40/30 N split is a sound default for most field crops; adjust to the crop's uptake curve (Visual Lab - Uptake curve).","good");
+  box.innerHTML=html;
+}
+
+/* ================= STATE / IMPORT / EXPORT ================= */
+function collectInputs(){
+  var o={};
+  var els=document.querySelectorAll(".main input[id], .main select[id]");
+  for(var i=0;i<els.length;i++)if(els[i].type!=="file")o[els[i].id]=els[i].value;
+  return o;
+}
+function saveState(){
+  try{localStorage.setItem(KEY,JSON.stringify({inputs:collectInputs(),customFerts:customFerts}));}catch(e){}
+}
+function saveSnapshot(){saveState();toast("Workspace saved on this device.","ok");}
+function restoreState(){
   try{
-    let s=JSON.parse(localStorage.getItem("aznur_fertilizer_state")||"null");
-    if(s?.ferts?.length){ferts.length=0;ferts.push(...s.ferts);["fProduct","bNs","bPs","bKs","planNSource","planPSource","planKSource"].forEach(id=>fillSelect(id,ferts));renderFertDB()}
-    if(s?.farm)$("farmName").value=s.farm;
+    var s=JSON.parse(localStorage.getItem(KEY));
+    if(!s)return;
+    if(s.customFerts&&s.customFerts.length){customFerts=s.customFerts;fillFertSelects();renderFertDB();}
+    if(s.inputs){
+      for(var id in s.inputs){
+        var el=$(id);
+        if(el&&el.type!=="file")el.value=s.inputs[id];
+      }
+    }
   }catch(e){}
 }
-
-function saveSnapshot(){
-  saveState();
-  $("dashboardSummary").innerHTML=`<div class="result">Saved locally at ${new Date().toLocaleString()}.</div>`;
-}
-
-function exportState(){
-  let blob=new Blob([JSON.stringify({ferts,crops,version:"1.0.0"},null,2)],{type:"application/json"});
-  downloadBlob(blob,"aznur-fertilizer-data.json");
-}
-
-function downloadCSVTemplate(type){
-  let rows=type==="fertilizers"?["name,type,formula,N,P2O5,K2O,other,use","Example,Custom,Formula,10,10,10,,General use"]:type==="crops"?["name,scientific,category,pH,duration,N,P2O5,K2O,stages,deficiency_notes","Example,Species,Cereal,5.5-7,120 days,100,40,60,Establishment|Vegetative|Flowering,N|P|K"]:["field,pH,EC,organic_matter,CEC,N,P,K,Zn","Field 1,6.5,0.5,2,12,60,20,80,1"];
-  downloadBlob(new Blob([rows.join("\n")],{type:"text/csv"}),`aznur-${type}-template.csv`);
-}
-
-function importCSV(e){
-  let file=e.target.files[0];
-  if(!file)return;
-  let r=new FileReader();
-  r.onload=()=>{
-    let lines=r.result.split(/\r?\n/).filter(Boolean),headers=lines[0].split(",").map(x=>x.trim());
-    $("importResult").innerHTML=`<div class="result"><b>Detected columns:</b> ${headers.join(", ")}</div><div class="notice">Preview only in this build. Confirm mapping before applying imported records to the active dataset.</div>`;
-  };
-  r.readAsText(file);
-}
-
-function downloadBlob(blob,name){
-  let a=document.createElement("a");
-  a.href=URL.createObjectURL(blob);
-  a.download=name;
-  a.click();
-  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
-}
-
-function clearForm(id){
-  document.querySelectorAll(`#${id} input`).forEach(x=>{if(x.type==="number")x.value=x.defaultValue});
-}
-
 function resetApp(){
-  if(confirm("Reset saved Aznur Fertilizer local data?")){
-    localStorage.removeItem("aznur_fertilizer_state");
+  if(confirm("Reset all local app data (saved values and custom fertilizers)?")){
+    try{localStorage.removeItem(KEY);}catch(e){}
     location.reload();
   }
 }
+function onCurrencyChange(v){
+  try{localStorage.setItem("aznur_currency",v);}catch(e){}
+  $("cur").value=v;
+  toast("Default currency: "+v);
+}
+function onCountryChange(v){
+  try{localStorage.setItem("aznur_country",v);}catch(e){}
+  $("country").value=v;
+  updateContext();
+}
+function dl(text,name,mime){
+  var blob=new Blob([text],{type:mime||"text/csv"});
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download=name;
+  document.body.appendChild(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);if(a.parentNode)a.parentNode.removeChild(a);},500);
+}
+var TEMPLATES={
+fertilizers:["name,type,formula,n,p2o5,k2o,other,use","NPK 10-26-26,Compound,NPK,10,26,26,,Basal at sowing"],
+crops:["name,scientific,category,duration,ph,n,p2o5,k2o,def,notes","Groundnut,Arachis hypogaea,Legume,100-130 days,6.0-7.0,30,40,30,S,Ca-rich soils"],
+soil:["field,ph,ec,om,cec,n,p,k,zn","North plot,6.2,0.4,2.4,11,70,18,95,1.2"]
+};
+function downloadCSVTemplate(type){
+  if(!TEMPLATES[type])return;
+  dl(TEMPLATES[type].join("\n"),"aznur-"+type+"-template.csv");
+  toast("Template downloaded - keep the header row intact.");
+}
+function parseCSV(text){
+  var rows=[],row=[],cur="",inQ=false;
+  for(var i=0;i<text.length;i++){
+    var ch=text[i];
+    if(inQ){
+      if(ch==='"'){if(text[i+1]==='"'){cur+='"';i++;}else inQ=false;}
+      else cur+=ch;
+    }else if(ch==='"')inQ=true;
+    else if(ch===","){row.push(cur);cur="";}
+    else if(ch==="\n"||ch==="\r"){
+      if(ch==="\r"&&text[i+1]==="\n")i++;
+      row.push(cur);cur="";
+      if(row.join("").trim()!=="")rows.push(row);
+      row=[];
+    }else cur+=ch;
+  }
+  row.push(cur);
+  if(row.join("").trim()!=="")rows.push(row);
+  return rows;
+}
+function exportState(){
+  dl(JSON.stringify({app:"aznur-studio",exported:new Date().toISOString(),inputs:collectInputs(),customFerts:customFerts},null,2),"aznur-workspace.json","application/json");
+  toast("Workspace exported.");
+}
+function importCSV(ev){
+  var f=ev.target.files[0];
+  if(!f)return;
+  var rd=new FileReader();
+  rd.onload=function(){
+    var text=String(rd.result);
+    var rows=parseCSV(text.trim());
+    if(rows.length<2){$("importResult").innerHTML=msg("The file has no data rows.","danger");return;}
+    var head=rows[0].map(function(h){return h.toLowerCase().replace(/[^a-z0-9]/g,"");});
+    var body=rows.slice(1);
+    var type;
+    if(head.indexOf("scientific")>=0)type="crops";
+    else if(head.indexOf("ph")>=0&&head.indexOf("ec")>=0)type="soil";
+    else if(head.indexOf("name")>=0&&head.indexOf("n")>=0)type="fertilizers";
+    else{$("importResult").innerHTML=msg("Could not recognize the file - headers must match a template.","danger");return;}
+    var html=msg("Detected <b>"+type+"</b> data - "+body.length+" row(s). Preview:")+
+      "<div class='tablewrap'><table><tr>";
+    for(var i=0;i<head.length;i++)html+="<th>"+esc(head[i])+"</th>";
+    html+="</tr>";
+    for(var r=0;r<Math.min(6,body.length);r++){
+      html+="<tr>";
+      for(var c=0;c<head.length;c++)html+="<td>"+esc(body[r][c]||"")+"</td>";
+      html+="</tr>";
+    }
+    html+="</table></div><div class='toolbar'><button class='btn primary' onclick='applyImport()'>Apply "+body.length+" row(s)</button></div>";
+    $("importResult").innerHTML=html;
+    window.__stagedImport={type:type,head:head,body:body};
+  };
+  rd.readAsText(f);
+  ev.target.value="";
+}
+function applyImport(){
+  var imp=window.__stagedImport;
+  if(!imp)return;
+  var count=0;
+  if(imp.type==="fertilizers"){
+    for(var i=0;i<imp.body.length;i++){
+      var o={};
+      for(var j=0;j<imp.head.length;j++)o[imp.head[j]]=imp.body[i][j]||"";
+      var name=(o.name||"").trim();
+      if(!name)continue;
+      customFerts.push({name:name,type:(o.type||"Custom").trim(),formula:(o.formula||"Custom").trim(),
+        N:parseFloat(o.n)||0,P:parseFloat(o.p2o5)||0,K:parseFloat(o.k2o)||0,
+        other:(o.other||"").trim(),use:(o.use||"").trim(),custom:true});
+      count++;
+    }
+    fillFertSelects();renderFertDB();
+  }else if(imp.type==="crops"){
+    for(var k=0;k<imp.body.length;k++){
+      var c={};
+      for(var m=0;m<imp.head.length;m++)c[imp.head[m]]=imp.body[k][m]||"";
+      if(!(c.name||"").trim())continue;
+      crops.push({name:c.name,scientific:c.scientific||"",category:c.category||"Crop",pH:c.ph||"-",
+        duration:c.duration||"-",N:parseFloat(c.n)||0,P:parseFloat(c.p2o5)||0,K:parseFloat(c.k2o)||0,
+        stages:c.duration||"-",def:c.def||"-",notes:c.notes||""});
+      count++;
+    }
+    fillCropSelects();
+  }else{
+    var v={};
+    for(var n=0;n<imp.head.length;n++)v[imp.head[n]]=imp.body[0]?imp.body[0][n]:"";
+    var map={ph:"sPH",ec:"sEC",om:"sOM",cec:"sCEC",n:"sN",p:"sP",k:"sK",zn:"sZn"};
+    for(var key in map){
+      var el=$(map[key]);
+      if(el&&v[key]!==""&&v[key]!==undefined&&!isNaN(parseFloat(v[key])))el.value=parseFloat(v[key]);
+    }
+    count=1;
+    go("soil");
+  }
+  saveState();
+  window.__stagedImport=null;
+  $("importResult").innerHTML=msg(count+" row(s) applied successfully.","good");
+  toast(count+" row(s) imported.","ok");
+}
 
-$("nav")?.addEventListener("click",e=>{
-  let b=e.target.closest("button[data-section]");
-  if(b)go(b.dataset.section);
-});
+/* ================= VISUAL LAB ================= */
+var VL={mode:"demand",playing:true,t:0,p:0,drag:false,ptr:{x:-1,y:-1,on:false}};
+var VLC={
+demand:{show:"All",sort:"Name"},
+balance:{nIn:120,nOut:100,pIn:40,pOut:30,kIn:80,kOut:90},
+fert:{sort:"Total",hl:"None"},
+soil:{ph:6.5,om:2.5,p:20,k:80,sm:{ph:6.5,om:2.5,p:20,k:80}},
+roi:{rate:120,price:60,value:30000,maxGain:2,resp:"Medium"},
+uptake:{crop:0,speed:1}
+};
+var VLC_DEFAULT=JSON.parse(JSON.stringify(VLC));
+var AMBER="#fbbf24",RUST="#e07a5f",GREEN="#9bc53d",INK="#f5f5f4",MUT="#a8a29e",GRID="#2a251f",DIM="#6e675c";
+var cv,vg;
+function ease01(t){return 1-Math.pow(1-t,3);}
+function vlPills(html){$("vlReadouts").innerHTML=html;}
+function vlMetrics(arr){
+  var html="";
+  for(var i=0;i<arr.length;i++)html+="<div class='chart-mini'><small>"+esc(arr[i][0])+"</small><strong>"+esc(arr[i][1])+"</strong></div>";
+  $("vlMetrics").innerHTML=html;
+}
+function vlLegend(arr){
+  var html="";
+  for(var i=0;i<arr.length;i++)html+="<div><span class='vl-swatch' style='background:"+arr[i][0]+"'></span>"+esc(arr[i][1])+"</div>";
+  $("vlLegend").innerHTML=html;
+}
+function vlText(g,s,x,y,font,color,align){
+  g.font=font||'10px ui-monospace,monospace';
+  g.fillStyle=color||MUT;
+  g.textAlign=align||"left";
+  g.fillText(s,x,y);
+}
+function vlBg(g,w,h){
+  g.fillStyle="#141110";g.fillRect(0,0,w,h);
+  g.fillStyle="rgba(251,191,36,.05)";
+  for(var x=18;x<w;x+=26)for(var y=18;y<h;y+=26)g.fillRect(x,y,1.4,1.4);
+}
 
-$("country")?.addEventListener("change",updateContext);
+function drawDemand(g,w,h,e){
+  var L=44,R=8,T=30,B=54,pw=w-L-R,ph=h-T-B;
+  var list=crops.slice();
+  if(VLC.demand.sort==="N demand")list.sort(function(a,b){return b.N-a.N;});
+  if(VLC.demand.sort==="K demand")list.sort(function(a,b){return b.K-a.K;});
+  var maxV=320;
+  var v;
+  for(v=0;v<=maxV;v+=80){
+    var y=T+ph-v/maxV*ph;
+    g.strokeStyle=GRID;g.beginPath();g.moveTo(L,y);g.lineTo(w-R,y);g.stroke();
+    vlText(g,v,L-6,y+3,'10px ui-monospace,monospace',DIM,"right");
+  }
+  vlText(g,"kg/ha",L-6,T-12,'10px ui-monospace,monospace',DIM,"right");
+  var n=list.length,gw=pw/n;
+  var hover=-1;
+  if(VL.ptr.on){hover=Math.floor((VL.ptr.x-L)/gw);if(hover<0||hover>=n)hover=-1;}
+  var sweepX=L+((VL.t*40)%pw);
+  var sets;
+  if(VLC.demand.show==="All")sets=[["N","N",AMBER],["P2O5","P",RUST],["K2O","K",GREEN]];
+  else if(VLC.demand.show==="N")sets=[["N","N",AMBER]];
+  else if(VLC.demand.show==="P2O5")sets=[["P2O5","P",RUST]];
+  else sets=[["K2O","K",GREEN]];
+  for(var i=0;i<n;i++){
+    var hot=(i===hover)||(!VL.ptr.on&&Math.abs(L+gw*i+gw/2-sweepX)<gw/2);
+    if(hot){g.fillStyle="rgba(251,191,36,.08)";g.fillRect(L+gw*i+1,T-4,gw-2,ph+8);}
+    var bw=Math.min(9,gw/(sets.length+1.4));
+    for(var j=0;j<sets.length;j++){
+      var bh=list[i][sets[j][1]]/maxV*ph*e;
+      g.fillStyle=sets[j][2];
+      g.globalAlpha=hot?1:.75;
+      g.fillRect(L+gw*i+gw/2-sets.length*bw/2+j*bw,T+ph-bh,bw,bh);
+      g.globalAlpha=1;
+    }
+    g.save();
+    g.translate(L+gw*i+gw/2,T+ph+10);
+    g.rotate(-.62);
+    vlText(g,list[i].name,0,0,'10px sans-serif',hot?INK:MUT,"right");
+    g.restore();
+  }
+  if(VL.playing&&hover<0){
+    g.strokeStyle="rgba(251,191,36,.35)";g.setLineDash([3,4]);
+    g.beginPath();g.moveTo(sweepX,T-6);g.lineTo(sweepX,T+ph+4);g.stroke();
+    g.setLineDash([]);
+  }
+  if(hover>=0){
+    var c=list[hover];
+    vlPills("<div class='vl-pill'>"+esc(c.name)+"</div><div class='vl-pill'>N <b>"+c.N+"</b></div><div class='vl-pill'>P\u2082O\u2085 <b>"+c.P+"</b></div><div class='vl-pill'>K\u2082O <b>"+c.K+"</b></div>");
+  }else vlPills("<div class='vl-pill'>crops <b>"+n+"</b></div><div class='vl-pill'>0-320 kg/ha</div>");
+}
 
-init();
-go("dashboard");
+function drawBalance(g,w,h,e){
+  var L=62,R=90,T=32,B=16;
+  var rows=[["N",VLC.balance.nIn,VLC.balance.nOut],["P\u2082O\u2085",VLC.balance.pIn,VLC.balance.pOut],["K\u2082O",VLC.balance.kIn,VLC.balance.kOut]];
+  var bw=w-L-R,rowH=(h-T-B)/3,maxV=300;
+  var v;
+  for(v=0;v<=maxV;v+=75){
+    var x=L+v/maxV*bw;
+    g.strokeStyle=GRID;g.beginPath();g.moveTo(x,T-4);g.lineTo(x,h-B);g.stroke();
+    vlText(g,v,x,T-10,'10px ui-monospace,monospace',DIM,"center");
+  }
+  for(var i=0;i<rows.length;i++){
+    var cy=T+i*rowH+rowH/2;
+    var hot=VL.ptr.on&&VL.ptr.y>T+i*rowH&&VL.ptr.y<T+(i+1)*rowH;
+    if(hot){g.fillStyle="rgba(251,191,36,.07)";g.fillRect(6,T+i*rowH+2,w-12,rowH-4);}
+    vlText(g,rows[i][0],L-12,cy+4,'600 12px ui-monospace,monospace',INK,"right");
+    var bt=Math.min(13,rowH*.2);
+    g.fillStyle=AMBER;g.fillRect(L,cy-rowH*.16-bt,rows[i][1]/maxV*bw*e,bt);
+    g.fillStyle=RUST;g.fillRect(L,cy+rowH*.16,rows[i][2]/maxV*bw*e,bt);
+    var bal=rows[i][1]-rows[i][2];
+    var bc=Math.abs(bal)>20?(bal>0?GREEN:"#e2604f"):MUT;
+    vlText(g,(bal>0?"+":"")+bal,w-10,cy+5,'600 13px ui-monospace,monospace',bc,"right");
+  }
+  vlPills("<div class='vl-pill'>inputs <b style='color:"+AMBER+"'>\u25A0</b> vs removal <b style='color:"+RUST+"'>\u25A0</b></div><div class='vl-pill'>kg/ha</div>");
+}
+
+function drawFert(g,w,h,e){
+  var L=150,R=64,T=24,B=14;
+  var list=allFerts().slice();
+  var s=VLC.fert.sort;
+  if(s==="Total")list.sort(function(a,b){return (b.N+b.P+b.K)-(a.N+a.P+a.K);});
+  else if(s==="N")list.sort(function(a,b){return b.N-a.N;});
+  else if(s==="P2O5")list.sort(function(a,b){return b.P-a.P;});
+  else if(s==="K2O")list.sort(function(a,b){return b.K-a.K;});
+  var bw=w-L-R,rowH=(h-T-B)/list.length;
+  var hover=-1;
+  if(VL.ptr.on){hover=Math.floor((VL.ptr.y-T)/rowH);if(hover<0||hover>=list.length)hover=-1;}
+  for(var i=0;i<list.length;i++){
+    var f=list[i],y=T+i*rowH,hot=i===hover;
+    if(hot){g.fillStyle="rgba(251,191,36,.08)";g.fillRect(6,y+1,w-12,rowH-2);}
+    var nm=f.name.length>21?f.name.slice(0,20)+"\u2026":f.name;
+    vlText(g,nm,L-10,y+rowH/2+3,'11px sans-serif',hot?INK:MUT,"right");
+    var hl=VLC.fert.hl,bh=rowH*.42,x=L;
+    var segs=[["N",f.N,AMBER],["P2O5",f.P,RUST],["K2O",f.K,GREEN]];
+    for(var j=0;j<segs.length;j++){
+      var sw=segs[j][1]/100*bw*e;
+      if(sw<=0)continue;
+      g.globalAlpha=(hl==="None"||hl===segs[j][0])?1:.22;
+      g.fillStyle=segs[j][2];
+      g.fillRect(x,y+rowH/2-bh/2,sw,bh);
+      x+=sw;
+    }
+    g.globalAlpha=1;
+    vlText(g,(f.N+f.P+f.K)+"%",w-10,y+rowH/2+4,'600 11px ui-monospace,monospace',hot?INK:MUT,"right");
+  }
+  if(hover>=0){
+    var fh=list[hover];
+    vlPills("<div class='vl-pill'>"+esc(fh.name)+"</div><div class='vl-pill'>N <b>"+fh.N+"</b></div><div class='vl-pill'>P\u2082O\u2085 <b>"+fh.P+"</b></div><div class='vl-pill'>K\u2082O <b>"+fh.K+"</b></div>");
+  }else vlPills("<div class='vl-pill'>products <b>"+list.length+"</b></div><div class='vl-pill'>% nutrient</div>");
+}
+
+function drawSoil(g,w,h){
+  vlBg(g,w,h);
+  var defs=[
+    {k:"ph",label:"pH",min:4,max:9,opt:[6,7],dec:1},
+    {k:"om",label:"Organic matter",min:0,max:12,opt:[2.5,6],dec:1},
+    {k:"p",label:"Available P",min:0,max:60,opt:[12,30],dec:0},
+    {k:"k",label:"Available K",min:0,max:300,opt:[60,160],dec:0}
+  ];
+  for(var i=0;i<defs.length;i++){
+    var d=defs[i];
+    VLC.soil.sm[d.k]+=(VLC.soil[d.k]-VLC.soil.sm[d.k])*.15;
+    var cx=(i%2)*w/2+w/4,cy=Math.floor(i/2)*h/2+h/2-10;
+    var r=Math.min(w/2,h/2)/2-38;
+    var a0=Math.PI*.75,sw=Math.PI*1.5;
+    function ang(v){return a0+((v-d.min)/(d.max-d.min))*sw;}
+    g.lineWidth=10;g.lineCap="round";
+    g.strokeStyle="#2e2924";g.beginPath();g.arc(cx,cy,r,a0,a0+sw);g.stroke();
+    g.strokeStyle="rgba(155,197,61,.5)";
+    g.beginPath();g.arc(cx,cy,r,ang(d.opt[0]),ang(d.opt[1]));g.stroke();
+    var a=ang(VLC.soil.sm[d.k]);
+    g.strokeStyle=AMBER;g.lineWidth=2;
+    g.beginPath();g.moveTo(cx+Math.cos(a)*12,cy+Math.sin(a)*12);g.lineTo(cx+Math.cos(a)*(r-6),cy+Math.sin(a)*(r-6));g.stroke();
+    g.fillStyle=AMBER;g.beginPath();g.arc(cx,cy,3.4,0,7);g.fill();
+    vlText(g,VLC.soil.sm[d.k].toFixed(d.dec),cx,cy+2,'600 19px Georgia',INK,"center");
+    vlText(g,d.label,cx,cy+22,'10px sans-serif',MUT,"center");
+    var cls=soilClass(d.k,VLC.soil[d.k]);
+    var col=cls[1]==="ok"?GREEN:cls[1]==="med"?AMBER:"#e2604f";
+    vlText(g,cls[0],cx,cy+r+30,'600 11px sans-serif',col,"center");
+  }
+  vlPills("<div class='vl-pill'>pH <b>"+VLC.soil.ph.toFixed(1)+"</b></div><div class='vl-pill'>OM <b>"+VLC.soil.om.toFixed(1)+"%</b></div><div class='vl-pill'>P <b>"+VLC.soil.p+"</b></div><div class='vl-pill'>K <b>"+VLC.soil.k+"</b></div>");
+}
+
+function drawROI(g,w,h,e){
+  var L=58,R=16,T=28,B=40,pw=w-L-R,ph=h-T-B;
+  var k={Low:.006,Medium:.012,High:.02}[VLC.roi.resp];
+  function gain(x){return VLC.roi.maxGain*(1-Math.exp(-k*x));}
+  function prof(x){return VLC.roi.value*gain(x)-VLC.roi.price*x;}
+  var ymax=1,ymin=0,ox=0,op=-Infinity;
+  for(var x=0;x<=300;x+=2){
+    var p=prof(x);
+    if(p>ymax)ymax=p;
+    if(p<ymin)ymin=p;
+    if(p>op){op=p;ox=x;}
+  }
+  ymax*=1.12;ymin*=1.12;
+  function X(x){return L+x/300*pw;}
+  function Y(p){return T+ph-(p-ymin)/(ymax-ymin)*ph;}
+  for(var i=0;i<=4;i++){
+    var yy=T+ph-i/4*ph;
+    g.strokeStyle=GRID;g.beginPath();g.moveTo(L,yy);g.lineTo(w-R,yy);g.stroke();
+    var val=ymin+(ymax-ymin)*i/4;
+    var lab=Math.abs(val)>=1000?(val/1000).toFixed(0)+"k":val.toFixed(0);
+    vlText(g,lab,L-6,yy+3,'10px ui-monospace,monospace',DIM,"right");
+  }
+  for(var v=0;v<=300;v+=75){
+    vlText(g,v,X(v),h-B+16,'10px ui-monospace,monospace',DIM,"center");
+    g.strokeStyle=GRID;g.beginPath();g.moveTo(X(v),T+ph);g.lineTo(X(v),T+ph+4);g.stroke();
+  }
+  vlText(g,"N rate kg/ha",L+pw/2,h-8,'10px sans-serif',DIM,"center");
+  if(ymin<0){
+    g.strokeStyle=DIM;g.setLineDash([4,4]);
+    g.beginPath();g.moveTo(L,Y(0));g.lineTo(w-R,Y(0));g.stroke();
+    g.setLineDash([]);
+  }
+  g.strokeStyle=GREEN;g.setLineDash([4,4]);
+  g.beginPath();g.moveTo(X(ox),T);g.lineTo(X(ox),T+ph);g.stroke();
+  g.setLineDash([]);
+  g.fillStyle=GREEN;g.beginPath();g.arc(X(ox),Y(prof(ox)),4,0,7);g.fill();
+  vlText(g,"optimum",X(ox),T-8,'600 10px sans-serif',GREEN,"center");
+  g.strokeStyle=AMBER;g.lineWidth=2;g.beginPath();
+  var first=true;
+  for(var t=0;t<=300;t+=2){
+    var px=X(t),py=Y(prof(t)*e);
+    if(first){g.moveTo(px,py);first=false;}else g.lineTo(px,py);
+  }
+  g.stroke();g.lineWidth=1;
+  var rate=clampN(VLC.roi.rate,0,300);
+  if(VL.drag)rate=VLC.roi.rate;
+  g.strokeStyle="rgba(251,191,36,.4)";
+  g.beginPath();g.moveTo(X(rate),T);g.lineTo(X(rate),T+ph);g.stroke();
+  g.fillStyle="#141110";g.strokeStyle=AMBER;g.lineWidth=2;
+  g.beginPath();g.arc(X(rate),Y(prof(rate)),5.5,0,7);g.fill();g.stroke();
+  g.lineWidth=1;
+  vlPills("<div class='vl-pill'>rate <b>"+rate+"</b> kg/ha</div><div class='vl-pill'>gain <b>"+gain(rate).toFixed(2)+"</b> t/ha</div><div class='vl-pill'>net <b>"+Math.round(prof(rate))+"</b></div>");
+}
+
+function drawUptake(g,w,h,e){
+  var L=44,R=12,T=32,B=34,pw=w-L-R,ph=h-T-B;
+  var crop=crops[clampN(VLC.uptake.crop,0,crops.length-1)];
+  var stages=crop.stages.split(" - ");
+  var nB=Math.max(stages.length,1),bandW=pw/nB;
+  var v;
+  for(v=0;v<=100;v+=25){
+    var y=T+ph-v/100*ph;
+    g.strokeStyle=GRID;g.beginPath();g.moveTo(L,y);g.lineTo(w-R,y);g.stroke();
+    vlText(g,v+"%",L-6,y+3,'10px ui-monospace,monospace',DIM,"right");
+  }
+  for(var i=0;i<nB;i++){
+    if(i<nB-1){
+      g.strokeStyle=GRID;g.setLineDash([2,4]);
+      g.beginPath();g.moveTo(L+bandW*(i+1),T);g.lineTo(L+bandW*(i+1),T+ph);g.stroke();
+      g.setLineDash([]);
+    }
+    var lab=stages[i]||"";
+    if(lab.length>12)lab=lab.slice(0,11)+"\u2026";
+    vlText(g,lab,L+bandW*i+bandW/2,T-12,'9px sans-serif',DIM,"center");
+  }
+  var curves=[["N",55,.10,AMBER],["P\u2082O\u2085",45,.12,RUST],["K\u2082O",48,.10,GREEN]];
+  function sig(mid,kk,t){return 1/(1+Math.exp(-kk*(t-mid)));}
+  for(var c2=0;c2<curves.length;c2++){
+    g.strokeStyle=curves[c2][3];g.lineWidth=2;g.beginPath();
+    for(var t2=0;t2<=100;t2+=1.5){
+      var yy=T+ph-sig(curves[c2][1],curves[c2][2],t2)*ph*e;
+      if(t2===0)g.moveTo(L+t2/100*pw,yy);else g.lineTo(L+t2/100*pw,yy);
+    }
+    g.stroke();g.lineWidth=1;
+  }
+  var s=(VL.t*5*VLC.uptake.speed)%100;
+  if(VL.playing){
+    g.strokeStyle="rgba(245,245,244,.35)";g.setLineDash([3,4]);
+    g.beginPath();g.moveTo(L+s/100*pw,T-4);g.lineTo(L+s/100*pw,T+ph+4);g.stroke();
+    g.setLineDash([]);
+    for(var c3=0;c3<curves.length;c3++){
+      g.fillStyle=curves[c3][3];
+      g.beginPath();g.arc(L+s/100*pw,T+ph-sig(curves[c3][1],curves[c3][2],s)*ph*e,4,0,7);g.fill();
+    }
+  }
+  vlPills("<div class='vl-pill'>"+esc(crop.name)+" @ <b>"+s.toFixed(0)+"%</b> season</div><div class='vl-pill'>N <b>"+(sig(55,.10,s)*100).toFixed(0)+"%</b></div><div class='vl-pill'>P\u2082O\u2085 <b>"+(sig(45,.12,s)*100).toFixed(0)+"%</b></div><div class='vl-pill'>K\u2082O <b>"+(sig(48,.10,s)*100).toFixed(0)+"%</b></div>");
+}
+
+var VLMETA={
+demand:{title:"NPK Demand",desc:"Baseline N, P\u2082O\u2085 and K\u2082O across the crop dataset. Hover a column for values.",
+  controls:[{k:"show",label:"Nutrients",type:"select",opts:["All","N","P2O5","K2O"]},{k:"sort",label:"Sort crops",type:"select",opts:["Name","N demand","K demand"]}],
+  legend:[[AMBER,"N"],[RUST,"P\u2082O\u2085"],[GREEN,"K\u2082O"]],
+  metrics:function(){return[["Crops",crops.length+""],["Highest N","Banana 200"],["Highest K","Banana 300"]];},
+  draw:drawDemand},
+balance:{title:"Nutrient Balance",desc:"Inputs versus crop removal. +/-20 kg/ha counts as balanced.",
+  controls:[{k:"nIn",label:"N inputs",type:"range",min:0,max:300},{k:"nOut",label:"N removal",type:"range",min:0,max:300},{k:"pIn",label:"P\u2082O\u2085 inputs",type:"range",min:0,max:300},{k:"pOut",label:"P\u2082O\u2085 removal",type:"range",min:0,max:300},{k:"kIn",label:"K\u2082O inputs",type:"range",min:0,max:300},{k:"kOut",label:"K\u2082O removal",type:"range",min:0,max:300}],
+  legend:[[AMBER,"Inputs"],[RUST,"Removal"]],
+  metrics:function(){return[["N bal",(VLC.balance.nIn-VLC.balance.nOut>0?"+":"")+(VLC.balance.nIn-VLC.balance.nOut)],["P\u2082O\u2085 bal",(VLC.balance.pIn-VLC.balance.pOut>0?"+":"")+(VLC.balance.pIn-VLC.balance.pOut)],["K\u2082O bal",(VLC.balance.kIn-VLC.balance.kOut>0?"+":"")+(VLC.balance.kIn-VLC.balance.kOut)]];},
+  draw:drawBalance},
+fert:{title:"Fertilizer Compare",desc:"All products stacked by N, P\u2082O\u2085, K\u2082O content. Hover a row.",
+  controls:[{k:"sort",label:"Sort by",type:"select",opts:["Total","N","P2O5","K2O"]},{k:"hl",label:"Highlight",type:"select",opts:["None","N","P2O5","K2O"]}],
+  legend:[[AMBER,"N %"],[RUST,"P\u2082O\u2085 %"],[GREEN,"K\u2082O %"]],
+  metrics:function(){return[["Products",allFerts().length+""],["Best N","Urea 46%"],["Best K","MOP 60%"]];},
+  draw:drawFert},
+soil:{title:"Soil Profile",desc:"Screen values against typical optimal bands (green arc). The needle eases toward each slider.",
+  controls:[{k:"ph",label:"pH",type:"range",min:4,max:9,step:.1},{k:"om",label:"Organic matter %",type:"range",min:0,max:12,step:.1},{k:"p",label:"Available P",type:"range",min:0,max:60},{k:"k",label:"Available K",type:"range",min:0,max:300}],
+  legend:[["rgba(155,197,61,.6)","Optimal band"],[AMBER,"Current value"]],
+  metrics:function(){return[["pH",soilClass("ph",VLC.soil.ph)[0]],["OM",soilClass("om",VLC.soil.om)[0]],["P",soilClass("p",VLC.soil.p)[0]]];},
+  draw:drawSoil},
+roi:{title:"ROI Sensitivity",desc:"A yield-response curve converted to profit. Drag on the chart to move the rate; green marks the optimum.",
+  controls:[{k:"rate",label:"N rate kg/ha",type:"range",min:0,max:300,step:5},{k:"price",label:"Nutrient price/kg",type:"range",min:0,max:300,step:5},{k:"value",label:"Crop value/t",type:"range",min:1000,max:100000,step:500},{k:"maxGain",label:"Max gain t/ha",type:"range",min:.5,max:4,step:.1},{k:"resp",label:"Responsiveness",type:"select",opts:["Low","Medium","High"]}],
+  legend:[[AMBER,"Net profit"],[GREEN,"Optimum"]],
+  metrics:function(){return[["Rate",VLC.roi.rate+" kg/ha"],["Price",""+VLC.roi.price],["Value/t",""+VLC.roi.value]];},
+  draw:drawROI},
+uptake:{title:"Uptake Curve",desc:"Cumulative uptake across the season with growth-stage bands. The cursor sweeps automatically.",
+  controls:[{k:"crop",label:"Crop",type:"select",opts:crops.map(function(c){return c.name;})},{k:"speed",label:"Sweep speed",type:"range",min:.3,max:3,step:.1}],
+  legend:[[AMBER,"Cumulative N"],[RUST,"Cumulative P\u2082O\u2085"],[GREEN,"Cumulative K\u2082O"]],
+  metrics:function(){return[["Crop",crops[clampN(VLC.uptake.crop,0,crops.length-1)].name],["N 50% at","~55% season"],["K\u2082O 50% at","~48% season"]];},
+  draw:drawUptake}
+};
+
+function vlBuildControls(){
+  var meta=VLMETA[VL.mode];
+  var box=$("vlControls");
+  var html="";
+  for(var i=0;i<meta.controls.length;i++){
+    var c=meta.controls[i];
+    html+="<div class='vl-control'><label>"+esc(c.label)+"</label>";
+    if(c.type==="select"){
+      html+="<div class='vl-row' style='grid-template-columns:1fr'><select id='vlc_"+c.k+"'>";
+      for(var j=0;j<c.opts.length;j++){
+        var sel=String(VLC[VL.mode][c.k])===String(c.opts[j])?" selected":"";
+        html+="<option"+sel+">"+esc(c.opts[j])+"</option>";
+      }
+      html+="</select></div>";
+    }else{
+      html+="<div class='vl-row'><input type='range' id='vlc_"+c.k+"' min='"+c.min+"' max='"+c.max+"' step='"+(c.step||1)+"' value='"+VLC[VL.mode][c.k]+"'><span class='val' id='vlv_"+c.k+"'>"+VLC[VL.mode][c.k]+"</span></div>";
+    }
+    html+="</div>";
+  }
+  box.innerHTML=html;
+  for(var m=0;m<meta.controls.length;m++){
+    (function(ctrl){
+      var s=$("vlc_"+ctrl.k),r=s&&s.tagName==="SELECT"?null:s;
+      var rangeEl=($("vlc_"+ctrl.k));
+      if(rangeEl&&rangeEl.tagName==="SELECT"){
+        rangeEl.onchange=function(){
+          var v=rangeEl.value;
+          if(ctrl.opts&&ctrl.opts.length&&!isNaN(parseFloat(ctrl.opts[0]))&&ctrl.opts[0]!=="")v=parseFloat(v);
+          VLC[VL.mode][ctrl.k]=v;
+          VL.p=0;vlStatic();
+        };
+      }else if(rangeEl){
+        rangeEl.oninput=function(){
+          VLC[VL.mode][ctrl.k]=parseFloat(rangeEl.value);
+          var lab=$("vlv_"+ctrl.k);
+          if(lab)lab.textContent=rangeEl.value;
+          VL.p=0;vlStatic();
+        };
+      }
+    })(meta.controls[m]);
+  }
+}
+function vlStatic(){
+  var meta=VLMETA[VL.mode];
+  $("vlModeTitle").textContent=meta.title;
+  $("vlModeDesc").textContent=meta.desc;
+  vlLegend(meta.legend);
+  vlMetrics(meta.metrics());
+}
+function vlSetMode(mode){
+  VL.mode=mode;VL.p=0;
+  var tabs=document.querySelectorAll(".vl-tab");
+  for(var i=0;i<tabs.length;i++)tabs[i].classList.toggle("active",tabs[i].getAttribute("data-vl-mode")===mode);
+  vlBuildControls();vlStatic();
+}
+function vlFit(){
+  if(!cv)return;
+  var r=cv.parentElement.getBoundingClientRect();
+  var d=window.devicePixelRatio||1;
+  cv.width=Math.max(1,r.width*d);
+  cv.height=Math.max(1,r.height*d);
+  if(vg)vg.setTransform(d,0,0,d,0,0);
+}
+function vlLoop(){
+  requestAnimationFrame(vlLoop);
+  if(!$("visual").classList.contains("active"))return;
+  if(VL.playing)VL.t+=.016;
+  if(VL.p<1)VL.p=Math.min(1,VL.p+.03);
+  var w=cv.clientWidth,h=cv.clientHeight;
+  if(!w||!h)return;
+  vg.clearRect(0,0,w,h);
+  VLMETA[VL.mode].draw(vg,w,h,ease01(VL.p));
+}
+function vlInit(){
+  cv=$("vlCanvas");vg=cv.getContext("2d");
+  var tabs=document.querySelectorAll(".vl-tab");
+  for(var i=0;i<tabs.length;i++)(function(t){t.onclick=function(){vlSetMode(t.getAttribute("data-vl-mode"));};})(tabs[i]);
+  $("vlAnimate").onclick=function(){VL.playing=!VL.playing;$("vlAnimate").textContent=VL.playing?"Pause":"Play";};
+  $("vlReset").onclick=function(){
+    var def=VLC_DEFAULT[VL.mode];
+    for(var k in def)VLC[VL.mode][k]=def[k];
+    if(VL.mode==="soil")VLC.soil.sm={ph:6.5,om:2.5,p:20,k:80};
+    VL.p=0;vlBuildControls();vlStatic();
+    toast("Chart reset.");
+  };
+  $("vlPng").onclick=function(){
+    cv.toBlob(function(b){
+      var a=document.createElement("a");
+      a.href=URL.createObjectURL(b);
+      a.download="aznur-visual-"+VL.mode+".png";
+      document.body.appendChild(a);a.click();
+      setTimeout(function(){URL.revokeObjectURL(a.href);if(a.parentNode)a.parentNode.removeChild(a);},500);
+      toast("Chart exported as PNG.","ok");
+    });
+  };
+  cv.addEventListener("pointermove",function(e){
+    var r=cv.getBoundingClientRect();
+    VL.ptr={x:e.clientX-r.left,y:e.clientY-r.top,on:true};
+    if(VL.drag&&VL.mode==="roi"){
+      var w=cv.clientWidth;
+      VLC.roi.rate=Math.round(clampN((VL.ptr.x-58)/(w-58-16)*300,0,300));
+      var lab=$("vlc_rate");
+      if(lab){lab.value=VLC.roi.rate;}
+      var v=$("vlv_rate");if(v)v.textContent=VLC.roi.rate;
+    }
+  });
+  cv.addEventListener("pointerleave",function(){VL.ptr.on=false;VL.drag=false;});
+  cv.addEventListener("pointerdown",function(e){
+    var r=cv.getBoundingClientRect();
+    VL.ptr={x:e.clientX-r.left,y:e.clientY-r.top,on:true};
+    VL.drag=true;
+    try{cv.setPointerCapture(e.pointerId);}catch(err){}
+  });
+  cv.addEventListener("pointerup",function(){VL.drag=false;});
+  if(window.ResizeObserver)new ResizeObserver(vlFit).observe($("vlStage"));
+  else window.addEventListener("resize",vlFit);
+  vlFit();
+  vlSetMode("demand");
+  vlLoop();
+}
+
+/* ================= SELECTS / INIT ================= */
+function fillCropSelects(){
+  var f=function(c){return c.name+" - "+c.category;};
+  fillSelect("dashCrop",crops,f);
+  fillSelect("cropSelect",crops,f);
+  fillSelect("planCrop",crops,f);
+}
+function fillFertSelects(){
+  var f=function(x){return x.name+" ("+x.N+"-"+x.P+"-"+x.K+")";};
+  var ids=["fProduct","bNs","bPs","bKs","planNSource","planPSource","planKSource"];
+  for(var i=0;i<ids.length;i++)fillSelect(ids[i],allFerts(),f);
+  $("bNs").value=0;$("bPs").value=1;$("bKs").value=4;
+  $("planNSource").value=0;$("planPSource").value=1;$("planKSource").value=4;
+  syncFertPct();
+}
+function init(){
+  fillCropSelects();
+  fillFertSelects();
+  fillSelect("orgMat",organics,function(o){return o.name;});
+  renderNutTable();
+  renderRefTable();
+  renderFertDB();
+  renderSymptoms();
+  /* store defaults for Reset buttons */
+  var els=document.querySelectorAll("input[id], select[id]");
+  for(var i=0;i<els.length;i++)if(els[i].type!=="file")els[i].setAttribute("data-default",els[i].value);
+  /* restore saved state */
+  restoreState();
+  try{
+    var sc=localStorage.getItem("aznur_currency");
+    if(sc)$("setCurrency").value=sc;
+    var sc2=localStorage.getItem("aznur_country");
+    if(sc2){$("setCountry").value=sc2;$("country").value=sc2;}
+  }catch(e){}
+  /* nav */
+  var btns=document.querySelectorAll("#nav button[data-section]");
+  for(var b=0;b<btns.length;b++)(function(btn){btn.onclick=function(){go(btn.getAttribute("data-section"));};})(btns[b]);
+  /* live wiring */
+  $("fProduct").addEventListener("change",syncFertPct);
+  $("fNut").addEventListener("change",syncFertPct);
+  $("orgMat").addEventListener("change",function(){
+    var o=organics[+$("orgMat").value];
+    if(o){$("orgN").value=o.N;$("orgP").value=o.P;$("orgK").value=o.K;}
+  });
+  $("dashCrop").addEventListener("change",function(){
+    updateDashboard();
+    $("cropSelect").value=$("dashCrop").value;
+    renderCropInfo();
+  });
+  $("cropSelect").addEventListener("change",renderCropInfo);
+  $("yieldTarget").addEventListener("input",renderCropInfo);
+  $("country").addEventListener("change",updateContext);
+  $("cur").addEventListener("change",function(){toast("Currency for this calculation: "+$("cur").value);});
+  /* Enter key triggers the section's primary button */
+  document.addEventListener("keydown",function(e){
+    if(e.key!=="Enter")return;
+    var t=e.target;
+    if(!t.matches||!t.matches("input:not([type=range]):not([type=file]), select"))return;
+    var sec=t.closest(".section");
+    if(!sec)return;
+    var btn=sec.querySelector(".btn.primary");
+    if(btn)btn.click();
+  });
+  updateDashboard();
+  renderCropInfo();
+  vlInit();
+}
+document.addEventListener("DOMContentLoaded",init);
 </script>
 </body>
 </html>
